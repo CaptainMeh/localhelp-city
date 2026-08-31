@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import PageIntro from '../components/PageIntro.astro';
+import ChatExample from '../components/ChatExample.astro';
+import PaymentExplainer from '../components/PaymentExplainer.astro';
+import HonestLimits from '../components/HonestLimits.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { SITE, WA_MESSAGES } from '../lib/site';
+
+const steps = [
+  {
+    n: '1',
+    title: 'Message us on WhatsApp',
+    body: 'Any everyday question about living in Cluj — housing, paperwork, prices, neighborhoods, services, or "I don\'t know what to do next." Simple English is enough; short messages are fine.',
+  },
+  {
+    n: '2',
+    title: 'A local answers, properly',
+    body: 'Not a bot, not a script. A person who lives here reads your message and answers with practical advice, honest limits, and what they\'d do next. During the day, usually within a few hours.',
+  },
+  {
+    n: '3',
+    title: 'If it helped, pay what feels fair',
+    body: "We're just starting in Cluj, so early users choose what they pay. We'll send a payment link with a suggested range — a small question is usually a few euros — and you pick the amount. Bigger jobs are agreed together before we start.",
+  },
+  {
+    n: '4',
+    title: 'Want someone there in person?',
+    body: 'Apartment viewings, offices, landlord meetings, first-week setup — we can often come along. By the hour, price agreed in advance, subject to availability, always your call.',
+  },
+];
+---
+
+<BaseLayout
+  title="How It Works — Ask Someone Local, Pay What Feels Fair"
+  description="Message a real local person on WhatsApp with any everyday question about Cluj. We answer properly; if it helped, you choose what to pay from a suggested range."
+  path="/how-it-works/"
+>
+  <Hero headline="How it works" coreSentence={SITE.coreSentence}>
+    <Fragment slot="lead">
+      <p>
+        The whole product is a conversation: you, a question about Cluj, and a local person who
+        answers it well. Everything else is detail — here's all of it.
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
+    </Fragment>
+  </Hero>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="grid gap-5 sm:grid-cols-2">
+      {steps.map((step) => (
+        <div class="bg-cream border border-terra-soft rounded-2xl p-6">
+          <span class="font-display text-3xl text-terra" aria-hidden="true">{step.n}</span>
+          <h2 class="font-semibold text-xl mt-2">{step.title}</h2>
+          <p class="mt-2.5 text-ink-soft">{step.body}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="grid gap-10 md:grid-cols-2 items-center">
+      <PageIntro title="What a real exchange looks like">
+        <p>
+          No forms, no ticket numbers, no "your request is important to us." Just a question and
+          an answer that actually helps — like having a friend in town who happens to know
+          everything about it.
+        </p>
+      </PageIntro>
+      <ChatExample
+        question="Hi! I need to register my rental contract but I have no idea where to go or what to bring. Help?"
+        answer="You're looking at ANAF for this one — I'll send you the address of the right office for your neighborhood. Bring your ID, the signed contract (two copies), and your landlord ideally comes too. Go before 11 if you can; the queue doubles after lunch. Want me to walk you through the form?"
+      />
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full />
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="Why we work this way">
+      <p>
+        People don't need a local <em>per month</em> — they need one <em>at moments</em>: before
+        arriving, while checking apartments, during the first week, at a paperwork deadline, when
+        something confusing happens. So that's what we sell: one real answer at the exact moment
+        it matters, priced like a favor between reasonable people.
+      </p>
+      <p>
+        If you find yourself asking us things often — staying longer, settling in properly — ask
+        us about ongoing support. We may offer a simple monthly option later.
+      </p>
+    </PageIntro>
+  </section>
+
+  <HonestLimits />
+
+  <CtaBlock headline="Try it with one real question." message={WA_MESSAGES.general} label="Ask us one question">
+    <p>The best way to understand how it works is to use it once. That first hello costs nothing.</p>
+  </CtaBlock>
+</BaseLayout>

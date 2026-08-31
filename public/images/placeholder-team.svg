@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Team photo placeholder">
+  <rect width="800" height="600" fill="#f4ede3"/>
+  <rect x="24" y="24" width="752" height="552" rx="24" fill="none" stroke="#b85c38" stroke-width="3" stroke-dasharray="12 10" opacity="0.5"/>
+  <text x="400" y="285" font-family="Georgia, serif" font-size="34" fill="#96482b" text-anchor="middle">Real team photo goes here</text>
+  <text x="400" y="330" font-family="system-ui, sans-serif" font-size="20" fill="#52615a" text-anchor="middle">Natural light · the actual office · real faces</text>
+</svg>

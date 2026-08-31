@@ -1,0 +1,37 @@
+---
+/**
+ * Card for a guide article. While guides are being written, cards can render
+ * as "on its way" without a link — set comingSoon.
+ */
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  comingSoon?: boolean;
+}
+const { title, description, href, comingSoon = false } = Astro.props;
+---
+
+<article class="bg-cream border border-terra-soft rounded-2xl p-6 flex flex-col">
+  <h3 class="font-semibold text-lg leading-snug">
+    {href && !comingSoon ? (
+      <a href={href} class="hover:text-terra-deep underline-offset-4 hover:underline">{title}</a>
+    ) : (
+      title
+    )}
+  </h3>
+  <p class="mt-2.5 text-ink-soft text-[0.95rem] flex-1">{description}</p>
+  {
+    comingSoon ? (
+      <p class="mt-4 text-sm font-semibold text-honey-soft bg-ink/90 rounded-full px-3 py-1 self-start">
+        On its way — ask us directly meanwhile
+      </p>
+    ) : (
+      href && (
+        <a href={href} class="mt-4 font-semibold text-terra-deep underline underline-offset-4 hover:text-terra self-start">
+          Read the guide →
+        </a>
+      )
+    )
+  }
+</article>

@@ -1,0 +1,68 @@
+---
+import { NAV, WA_MESSAGES } from '../lib/site';
+import Wordmark from './Wordmark.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="bg-cream/95 border-b border-terra-soft sticky top-0 z-40 backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex items-center justify-between gap-4 py-3">
+      <a href="/" class="shrink-0" aria-label="localhelp.city — home">
+        <Wordmark />
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden md:flex items-center gap-6" aria-label="Main">
+        {
+          NAV.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                'text-[0.95rem] font-medium hover:text-terra-deep transition-colors',
+                currentPath === item.href ? 'text-terra-deep underline underline-offset-8 decoration-2 decoration-honey' : 'text-ink-soft',
+              ]}
+              aria-current={currentPath === item.href ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="hidden md:block shrink-0">
+        <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" class="!px-4 !py-2.5 text-sm" />
+      </div>
+
+      <!-- Mobile nav: CSS-only via <details>, no JavaScript -->
+      <details class="md:hidden relative">
+        <summary
+          class="flex items-center gap-1.5 font-semibold text-ink-soft px-3 py-2 rounded-lg border border-terra-soft select-none"
+          aria-label="Open menu"
+        >
+          Menu
+        </summary>
+        <nav
+          class="absolute right-0 mt-2 w-64 bg-cream border border-terra-soft rounded-xl shadow-lg p-3 flex flex-col gap-1 z-50"
+          aria-label="Main mobile"
+        >
+          {
+            NAV.map((item) => (
+              <a
+                href={item.href}
+                class="px-3 py-2.5 rounded-lg font-medium text-ink-soft hover:bg-paper hover:text-terra-deep"
+                aria-current={currentPath === item.href ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+          <div class="pt-2 mt-1 border-t border-terra-soft">
+            <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" class="w-full justify-center text-sm" />
+          </div>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

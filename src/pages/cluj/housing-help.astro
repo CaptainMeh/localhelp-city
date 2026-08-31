@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import GuideCard from '../../components/GuideCard.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import PaymentExplainer from '../../components/PaymentExplainer.astro';
+import { WA_MESSAGES } from '../../lib/site';
+import { localBusinessSchema } from '../../lib/schema';
+
+const redFlags = [
+  'Payment requested before you\'ve viewed the apartment or verified the landlord — the single biggest red flag there is',
+  'Prices clearly below the market for the area (bait listings)',
+  'A "landlord" who is abroad and will "send the keys by courier"',
+  'Pressure: "three other people want it, decide in an hour"',
+  'No contract, a half-blank contract, or "we\'ll register it later"',
+  'Deposits far outside the local norm',
+  'Refusal to show ID or proof of ownership',
+];
+
+const housingGuides = [
+  { title: 'How to avoid rental scams in Cluj-Napoca', description: 'The scam patterns we see every month, and the checklist to screenshot.' },
+  { title: 'Best neighborhoods in Cluj for students', description: 'Honest pros and cons by university, budget, and lifestyle.' },
+  { title: 'Apartment viewing checklist', description: 'What to check, what to ask, and when to walk away.' },
+  { title: 'Rental contracts in Romania, explained', description: 'Deposits, notice periods, registration — in plain English.' },
+  { title: 'How much does rent cost in Cluj?', description: 'Realistic ranges by area, and how to tell if a price is fair.' },
+];
+---
+
+<BaseLayout
+  title="Housing Help in Cluj — Check Before You Sign"
+  description="Found an apartment in Cluj? Ask a local before you pay. Listing checks, red flags, fair-price guidance, viewing support. Ask a question, pay what feels fair."
+  path="/cluj/housing-help/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero headline="Housing help in Cluj — before you sign, pay, or panic.">
+    <Fragment slot="lead">
+      <p>
+        Housing is where people new to Cluj lose the most money, sleep, and confidence. It's also
+        where a local person helps most. Whatever stage you're at — browsing listings from abroad
+        or holding a pen over a contract — talk to us first.
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.housing} label="Send us the listing" variant="primary" />
+      <WhatsAppButton message={WA_MESSAGES.housing} label="Get help before you sign" variant="secondary" />
+    </Fragment>
+    <Fragment slot="reassurance">A rental sanity check is usually €5–15 — you choose what feels fair after we help.</Fragment>
+  </Hero>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="We look at listings with you">
+      <p>
+        Found something promising? Send us the link or screenshots. We'll tell you what a local
+        sees: whether the price is fair for that street, whether the photos and description add
+        up, what the listing doesn't mention, and what we'd ask before going further. It takes us
+        minutes and can save you months of regret.
+      </p>
+      <p class="italic">
+        "Is this too good to be true?" is a question we answer almost every day. Sometimes the
+        answer is "actually, it's fine — here's why." That one feels good to send.
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="The rental red flags we see every month">
+      <p>Some patterns come up again and again in Cluj:</p>
+    </PageIntro>
+    <ul class="mt-6 space-y-3">
+      {redFlags.map((flag) => (
+        <li class="flex gap-3 bg-cream border border-terra-soft rounded-xl px-4 py-3">
+          <span class="text-terra-deep font-bold" aria-hidden="true">!</span>
+          <span class="text-ink-soft">{flag}</span>
+        </li>
+      ))}
+    </ul>
+    <p class="mt-5 text-ink-soft">
+      Ask us before money moves — a second pair of local eyes on all of this is exactly what
+      we're for.
+    </p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="Which neighborhood makes sense for you">
+      <p>
+        Zorilor or Gheorgheni? Mănăștur's prices or Centru's convenience? The honest answer
+        depends on your university or workplace, your budget, your schedule, and how you like to
+        live. Tell us those four things and we'll give you a real local take — including the
+        trade-offs listing sites won't mention, like commute reality in winter or which streets
+        are noisy on weekends.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="What to ask at a viewing">
+      <p>
+        Before any viewing, we'll prep you: what to check (damp, heating, water pressure,
+        windows, appliances), what to ask (bills, deposit terms, house rules, who fixes what),
+        and what to notice in how the landlord answers. You'll walk in looking like someone who
+        can't be fooled — which, by itself, changes how you're treated.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Contracts, deposits, and bills — what's normal here">
+      <p>
+        Romanian rental contracts follow patterns. We help you understand what the clauses in
+        front of you actually mean in practice, whether the deposit and notice terms are within
+        local norms, how utilities and the building fee ("întreținere") typically work, and which
+        points are commonly negotiable. You'll make your decision understanding what you're
+        agreeing to.
+      </p>
+      <p>
+        <strong class="text-ink">Plainly:</strong> we're not lawyers and this isn't legal advice —
+        it's local orientation. If your situation needs a lawyer, we'll tell you so and help you
+        find one.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Staying months, not years?">
+      <p>
+        Short-term listings have <em>more</em> scams, not fewer — send us those too.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Want a local at the viewing with you?">
+      <p>
+        Some people prefer one of us physically present at a viewing or a landlord meeting — a
+        local voice, a second opinion on the spot, and a different dynamic in the room. That's
+        our in-person help: by the hour, price agreed in advance, subject to availability. Ask us
+        anytime.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="What we honestly can't promise">
+      <p>
+        We don't find apartments for you or hold an inventory of rentals — we make you
+        dramatically better at searching, judging, and deciding. We can't guarantee you'll never
+        be scammed or that a landlord will behave — we can make the odds much, much better. And
+        we can't change a bad contract after it's signed — which is exactly why the time to
+        message us is <strong class="text-ink">before</strong>.
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full={false} />
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
+    <PageIntro title="Free housing guides">
+      <p>On their way — being written by the same people who answer your messages.</p>
+    </PageIntro>
+    <div class="grid gap-5 mt-10 sm:grid-cols-2 lg:grid-cols-3">
+      {housingGuides.map((g) => <GuideCard title={g.title} description={g.description} comingSoon />)}
+    </div>
+  </section>
+
+  <CtaBlock
+    headline="Ready to search with a local on your side?"
+    message={WA_MESSAGES.housing}
+    label="Send us the listing"
+    secondaryMessage={WA_MESSAGES.housing}
+    secondaryLabel="Get help before you sign"
+  >
+    <p>Before you sign, pay, book, visit, decide, or panic — ask someone local.</p>
+  </CtaBlock>
+</BaseLayout>

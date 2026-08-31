@@ -1,0 +1,19 @@
+---
+/** A realistic WhatsApp-style exchange demonstrating tone and usefulness. */
+interface Props {
+  question: string;
+  answer: string;
+}
+const { question, answer } = Astro.props;
+---
+
+<div class="max-w-xl space-y-3" role="figure" aria-label="Example WhatsApp conversation">
+  <div class="bg-cream border border-terra-soft rounded-2xl rounded-br-sm px-4 py-3 ml-8">
+    <p class="text-xs font-semibold text-ink-soft mb-1">You</p>
+    <p class="text-[0.95rem]">{question}</p>
+  </div>
+  <div class="bg-honey-soft border border-honey/40 rounded-2xl rounded-bl-sm px-4 py-3 mr-8">
+    <p class="text-xs font-semibold text-ink-soft mb-1">us (localhelp.city)</p>
+    <p class="text-[0.95rem]">{answer}</p>
+  </div>
+</div>

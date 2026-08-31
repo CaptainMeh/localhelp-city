@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import TeamSection from '../../components/TeamSection.astro';
+import { WA_MESSAGES } from '../../lib/site';
+import { localBusinessSchema } from '../../lib/schema';
+
+const askUs = [
+  '"Is this apartment listing real? Is this rent fair?"',
+  '"What documents do I need, and which office do I go to?"',
+  '"Where do I find a doctor / dentist / pharmacy that speaks English?"',
+  '"My landlord says this — is that normal in Cluj?"',
+  '"I lost my documents. What do I do, in what order?"',
+  '"Where do locals buy this without overpaying?"',
+];
+---
+
+<BaseLayout
+  title="For Parents — Someone Local Your Child Can Ask in Cluj"
+  description="Your child is moving to Cluj-Napoca. Give them a kind, competent local person to ask about housing, paperwork, and everyday problems — with their consent, on their terms."
+  path="/cluj/for-parents/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero kicker="For parents" headline="Someone local, kind, and competent your child can ask in Cluj.">
+    <Fragment slot="lead">
+      <p>
+        Your child is moving to Cluj-Napoca — maybe from another Romanian city, maybe from
+        another country. You've done the big things together: the university, the paperwork, the
+        packing. What's left is the part no parent can pack for them:
+        <strong class="text-ink">the hundred small unknowns of a new city.</strong>
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.parent} label="Message us your questions" variant="primary" />
+    </Fragment>
+    <Fragment slot="reassurance">We're happy to talk with parents — and we'll be just as honest with you as with them.</Fragment>
+  </Hero>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="The problems are usually small. The stress isn't.">
+      <p>
+        Here's the honest truth about what goes wrong for students in a new city: it's rarely
+        dramatic. It's a rental contract they don't fully understand. A deposit that seems high.
+        An office that rejected their papers for a reason nobody explained. A weird noise the
+        landlord won't fix. A lost ID two days before a trip.
+      </p>
+      <p>
+        Each of these is too small for the university to handle, too local for Google to answer
+        well, and too stressful for a young person to carry alone at 9 p.m. in a city they've
+        known for three weeks.
+      </p>
+      <p class="font-medium text-ink">That's the gap we fill.</p>
+    </PageIntro>
+
+    <PageIntro title="What your child gets">
+      <p>
+        A real, local, English-speaking person on WhatsApp — a small team based in the centre of
+        Cluj, led by a local PhD, who knows how this city actually works. Before they sign a
+        contract, pay a deposit, choose a neighborhood, or stand in a queue, they can ask someone
+        who knows what's normal here.
+      </p>
+      <p>
+        While we're new in Cluj, it works simply: they ask a real question, we answer properly,
+        and if it helped, we send a payment link with a suggested range — usually a few euros for
+        a small question — and they (or you) choose what feels fair. In-person help, like going
+        along to an apartment viewing or an office, is by the hour and agreed in advance.
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="What your child can ask us" />
+    <ul class="mt-8 space-y-3">
+      {askUs.map((q) => (
+        <li class="bg-cream border border-terra-soft rounded-2xl rounded-bl-sm px-4 py-3 text-ink-soft">{q}</li>
+      ))}
+    </ul>
+    <p class="mt-6 text-lg text-ink-soft">
+      And the quieter one behind many messages: <em>"I don't know what to do next."</em> That
+      one, we're especially good at.
+    </p>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="How we respect their independence">
+      <p>
+        We think this matters as much to your child as it does to us, so let's be clear:
+        <strong class="text-ink">we work for the student, not as your eyes in Cluj.</strong> Our
+        conversations with them are private. We don't send parents reports, and we don't monitor
+        anyone. If your child is over 18, the relationship is theirs — you may pay, but they own it.
+      </p>
+      <p>
+        This isn't a limitation. It's the reason it works: students actually use help that
+        respects them. What you get isn't surveillance — it's the quiet knowledge that when
+        something confusing happens, your child has a competent adult in the city to ask, and
+        small problems get handled while they're still small.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="What we honestly are — and aren't">
+      <p>
+        We are a local guidance service: practical advice, orientation, recommendations, and
+        by-the-hour accompaniment.
+      </p>
+      <p>
+        We are <strong class="text-ink">not</strong> lawyers, doctors, psychologists, police,
+        university staff, or immigration officials — and when your child's question needs one of
+        those, we say so plainly and help them find the right one. We are
+        <strong class="text-ink">not</strong> an emergency service; in any real emergency, 112
+        comes first, and everyone we help knows it.
+      </p>
+      <p>
+        We won't promise you we solve everything, because nobody honestly can. We promise your
+        child will always have someone local to ask, and will always come away knowing the next
+        step.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="How to set it up">
+      <p>
+        The best way: <strong class="text-ink">send this page to your child and let them decide.</strong>
+        If they want it, the first question takes two minutes to send — and you're welcome to be
+        the one who pays what feels fair.
+      </p>
+      <p>Have questions first? Message us — we're happy to talk to parents.</p>
+    </PageIntro>
+  </section>
+
+  <TeamSection />
+
+  <CtaBlock
+    headline="Give them someone local to ask."
+    message={WA_MESSAGES.parent}
+    label="Message us your questions"
+  >
+    <p>
+      Many student problems are too small for the university, too local for Google, and too
+      stressful to handle alone in a new city. A kind, competent local person changes that.
+    </p>
+  </CtaBlock>
+</BaseLayout>

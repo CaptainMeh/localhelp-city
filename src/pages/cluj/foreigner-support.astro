@@ -1,0 +1,122 @@
+---
+/**
+ * SEO note: the slug /cluj/foreigner-support/ deliberately keeps the search term
+ * ("help for foreigners cluj", "living in cluj as a foreigner"). The visible page
+ * never labels its reader — the word appears in title tag and metadata only.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import TrustStrip from '../../components/TrustStrip.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import PaymentExplainer from '../../components/PaymentExplainer.astro';
+import TeamSection from '../../components/TeamSection.astro';
+import { WA_MESSAGES } from '../../lib/site';
+import { localBusinessSchema } from '../../lib/schema';
+
+const commonQuestions = [
+  { q: '"Is this rent normal for this street?"', detail: 'and "can you look at this listing?"' },
+  { q: '"Which neighborhood, for how we live?"', detail: 'families, quiet streets, short commutes, good weekend life' },
+  { q: '"What documents do I need, and which office?"', detail: "with honest pointers to officials when it's their job, not ours" },
+  { q: '"Where\'s an English-speaking doctor / dentist / kindergarten / accountant?"', detail: '' },
+  { q: '"Is this the real price or the newcomer price?"', detail: '' },
+  { q: '"My landlord says X — is that normal here?"', detail: '' },
+];
+---
+
+<BaseLayout
+  title="Support for Foreigners in Cluj — Someone Local to Ask"
+  description="New to Cluj-Napoca? Message a local, English-speaking person on WhatsApp about housing, paperwork, and everyday life. Ask a question, pay what feels fair."
+  path="/cluj/foreigner-support/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero kicker="For people new to Cluj" headline="New to Cluj? Get someone local to ask.">
+    <Fragment slot="lead">
+      <p>
+        Maybe you moved for a job. Maybe your partner did. Maybe you're here with your family, or
+        with a laptop and a six-week plan, or you're starting a whole new life. The stories
+        differ; the first months don't: everything is slightly unfamiliar, and every small
+        decision takes three times the energy it should.
+      </p>
+      <p>
+        You can message someone who knows Cluj — a small local team, on WhatsApp, in English —
+        before you sign, pay, book, visit, decide, or panic. We're just starting here, so early
+        users pay what feels fair: ask a real question, use the answer, and if it helped, pay
+        what you think it was worth.
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
+      <WhatsAppButton message={WA_MESSAGES.general} label="Get local guidance" variant="secondary" />
+    </Fragment>
+    <Fragment slot="reassurance">A real person replies, usually within a few hours.</Fragment>
+  </Hero>
+
+  <TrustStrip />
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="What people new to Cluj ask us most" />
+    <ul class="mt-8 space-y-3">
+      {commonQuestions.map((item) => (
+        <li class="bg-cream border border-terra-soft rounded-2xl rounded-bl-sm px-4 py-3">
+          <span class="text-ink font-medium">{item.q}</span>
+          {item.detail && <span class="text-ink-soft text-[0.95rem]"> — {item.detail}</span>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="Simple English is enough">
+      <p>
+        Write how you write. Short messages are fine. We're patient, and nobody here will ever
+        make you feel small for asking.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Protection from the newcomer tax">
+      <p>
+        People arriving in Cluj get quoted inflated rents, invented fees, and "special prices."
+        Ask us before you pay anything. Knowing what's normal is the best protection there is.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="The honest line, extra clear">
+      <p>
+        We're not lawyers or immigration officials. For visas, permits, or anything about your
+        legal status, we'll point you to official sources and qualified people — and help with
+        the everyday parts around it: understanding a letter, finding the office, having your
+        papers in order for the people who can help.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Arriving with a family?">
+      <p>
+        Neighborhood fit, kindergartens and schools orientation, pediatricians, weekend life —
+        the questions that decide whether a move feels like an adventure or an ordeal. Tell us
+        how you live; we'll tell you how Cluj fits around it.
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full={false} />
+  </section>
+
+  <TeamSection />
+
+  <CtaBlock
+    headline="The city gets easier the day you know a local."
+    message={WA_MESSAGES.general}
+    label="Ask us one question"
+    secondaryMessage={WA_MESSAGES.arrival}
+    secondaryLabel="Plan your arrival with us"
+  >
+    <p>
+      Whatever brought you here, the first months are made of small questions. Ask them somewhere
+      they get honest local answers.
+    </p>
+    <Fragment slot="footnote">If the answer helped, pay what feels fair. That's the whole deal.</Fragment>
+  </CtaBlock>
+</BaseLayout>

@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import SectionCards from '../../components/SectionCards.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import PaymentExplainer from '../../components/PaymentExplainer.astro';
+import { WA_MESSAGES } from '../../lib/site';
+import { localBusinessSchema } from '../../lib/schema';
+
+const situations = [
+  {
+    icon: '🎓',
+    title: 'University enrollment',
+    body: 'Admission is one paper pile; enrollment is another. We help you understand what the university is asking for and get it in order before the deadline.',
+  },
+  {
+    icon: '🏠',
+    title: 'Rental contract registration',
+    body: 'Why registered contracts matter (especially for residence permits), and what to ask your landlord for.',
+  },
+  {
+    icon: '🪪',
+    title: 'Residence-permit preparation',
+    body: 'Understanding the process, the documents typically requested, and the order of steps — with official sources always having the final word.',
+  },
+  {
+    icon: '🏦',
+    title: 'Bank, SIM, and everyday registrations',
+    body: 'What ID and papers each one actually needs, so you walk in prepared and walk out finished.',
+  },
+  {
+    icon: '📄',
+    title: 'Lost documents',
+    body: 'Lost ID or passport? We help you figure out the steps — police report, embassy or reissue, temporary documents — calmly and in order.',
+  },
+  {
+    icon: '✉️',
+    title: 'A letter you don\'t understand',
+    body: 'Official envelopes are stressful in any language. Send us a photo; we\'ll tell you what it is and what it needs from you.',
+  },
+];
+---
+
+<BaseLayout
+  title="Paperwork Help in Cluj — The Right Documents, the Right Office"
+  description="Romanian paperwork is confusing when you're new. We help students, internationals, and newcomers in Cluj know what documents they need, where to go, and how to prepare — so one trip is enough."
+  path="/cluj/paperwork-help/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero headline="Paperwork help in Cluj — the right documents, the right office, the first time.">
+    <Fragment slot="lead">
+      <p>
+        Romanian paperwork isn't actually impossible. It just assumes you already know things
+        nobody tells you: which office handles what, which documents to bring, which copies,
+        which order. When you're new, that missing context costs you whole afternoons.
+      </p>
+      <p>
+        Ask us first. We'll help you figure out what you actually need and how to prepare, so one
+        trip is enough.
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.paperwork} label="Ask before you queue" variant="primary" />
+      <WhatsAppButton message={WA_MESSAGES.paperwork} label="Get local guidance" variant="secondary" />
+    </Fragment>
+    <Fragment slot="reassurance">Standing in the wrong queue is a rite of passage — but it doesn't have to be yours.</Fragment>
+  </Hero>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="What we help you figure out">
+      <p>
+        Which documents you need for your specific situation. Which office handles it, and where
+        that office actually is. Whether you need an appointment and how to get one. What to
+        prepare — copies, translations, photos — so you're not sent home for a missing paper. And
+        the order to do things in, because in Romanian bureaucracy, order matters.
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="Common paperwork situations">
+      <p>The ones we see most — but ask about yours even if it's not here.</p>
+    </PageIntro>
+    <SectionCards cards={situations} columns={3} />
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="Residence permits: how we help — and where officials take over">
+      <p>
+        We help you <strong class="text-ink">prepare</strong>: understanding the process, knowing
+        which documents are typically needed, figuring out where to go and when, and getting
+        organized so your visit goes smoothly. We are not immigration officials or legal
+        representatives, we can't submit or influence applications, and official sources always
+        have the final word — we'll even help you find the right page to double-check.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Want someone to come with you?">
+      <p>
+        Some office visits are simply easier with a local along — for the language, the counters,
+        and the calm. That's our in-person help: by the hour, price agreed in advance, subject to
+        availability.
+      </p>
+      <p>
+        <WhatsAppButton message={WA_MESSAGES.inPerson} label="Ask about in-person help" variant="quiet" />
+      </p>
+    </PageIntro>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full={false} />
+  </section>
+
+  <CtaBlock
+    headline="One trip instead of three. That's the goal."
+    message={WA_MESSAGES.paperwork}
+    label="Ask before you queue"
+  >
+    <p>Before you sign, pay, book, visit, decide, or panic — ask someone local.</p>
+    <Fragment slot="footnote">If the answer helped, pay what feels fair. Small questions are the job.</Fragment>
+  </CtaBlock>
+</BaseLayout>

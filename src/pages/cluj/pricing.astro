@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import PaymentExplainer from '../../components/PaymentExplainer.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { WA_MESSAGES } from '../../lib/site';
+import { localBusinessSchema } from '../../lib/schema';
+
+const included = [
+  'WhatsApp guidance from a real local person, in English',
+  'Practical advice on housing: listings, prices, neighborhoods, viewings, contracts, deposits, landlord questions',
+  'Orientation for paperwork: what documents you need, where to go, how to prepare',
+  'Local recommendations: doctors, dentists, pharmacies, banks, SIM cards, shops, services, transport',
+  "A calm sounding board when something goes wrong and you don't know the next step",
+  'Honest answers — including "we don\'t know, but here\'s who would"',
+];
+
+const notIncluded = [
+  "Legal, medical, or financial advice — we help you find professionals; we aren't ones",
+  'Official representation before authorities, the university, or immigration offices',
+  'Emergency response — for real emergencies, always call 112 first',
+  "Doing things for you that only you can do — we guide, you stay in charge of your own life",
+  'A guarantee of outcomes — we promise honest, competent local help, not magic',
+];
+
+const faqItems = [
+  {
+    q: 'How does "pay what feels fair" actually work?',
+    a: "Exactly like it sounds. You ask, we answer properly, and afterwards we send a payment link with a suggested range for that kind of help. You choose the amount. We're new in Cluj — this is how we'd rather earn trust than with a paywall.",
+  },
+  {
+    q: 'Do I have to pay before asking?',
+    a: "No. While we're new in Cluj, you can ask first. If the answer helped, we'll send a payment link with a suggested range, and you choose what feels fair.",
+  },
+  {
+    q: 'Why not just fixed prices?',
+    a: "Because a small question and a complicated situation aren't the same work, and we're still learning what each moment of help is really worth to people here. Early users set that with us. Bigger jobs do get a fixed agreement — always before we start.",
+  },
+  {
+    q: 'When is a price agreed in advance?',
+    a: "Twice, always: anything complex enough to take real hours, and all in-person help (by the hour). If we haven't agreed it in advance, you don't owe it.",
+  },
+  {
+    q: 'Is there a subscription?',
+    a: 'Not right now. If you use us often, ask about ongoing support — we may offer a simple monthly option later. Nothing renews, nothing needs canceling.',
+  },
+  {
+    q: 'Can my parents or my employer pay?',
+    a: 'Of course. Plenty of first questions arrive as "my daughter lands Tuesday…" — and the payment link doesn\'t care whose card it is. The conversation stays with the person we\'re helping.',
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing — Ask Someone Local, Pay What Feels Fair"
+  description="We're just starting in Cluj, so early users pay what feels fair. Ask a real question, use the answer, and choose what it was worth. In-person help by the hour, agreed in advance."
+  path="/cluj/pricing/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero headline="Ask someone local. Pay what feels fair.">
+    <Fragment slot="lead">
+      <p>
+        We're just starting in Cluj, so early users can pay what feels fair. Ask us a real
+        question, use the answer, and if it helped, pay what you think it was worth.
+      </p>
+      <p>No meters, no fine print gymnastics. One honest exchange at a time.</p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.pricing} label="Ask us one question" variant="primary" />
+    </Fragment>
+    <Fragment slot="reassurance">No awkward follow-ups, no pressure — just a fair suggestion after we help.</Fragment>
+  </Hero>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full />
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="bg-cream border border-terra-soft rounded-2xl p-6 md:p-8">
+      <h2 class="font-display text-2xl font-semibold">In-person help — by the hour, agreed in advance</h2>
+      <p class="mt-3 text-ink-soft">
+        When a message isn't enough and you want a local with you: apartment viewings, offices,
+        landlord meetings, first-week setup. Ask us — we confirm availability and the hourly
+        price <strong class="text-ink">before</strong> anything is booked, and you decide.
+        Subject to availability; never a surprise charge.
+      </p>
+      <div class="mt-5">
+        <WhatsAppButton message={WA_MESSAGES.inPerson} label="Ask about in-person help" variant="secondary" />
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="bg-paper border border-terra-soft rounded-2xl p-6 md:p-8">
+      <h2 class="font-display text-2xl font-semibold">Asking us things often?</h2>
+      <p class="mt-3 text-ink-soft">
+        If you're staying longer and find yourself messaging us regularly — settling in properly,
+        a long apartment hunt — ask us about ongoing support. We may offer a simple monthly
+        option later; for now, pay-as-it-helps covers almost everyone.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-semibold">What our guidance covers</h2>
+        <ul class="mt-4 space-y-2.5 text-ink-soft">
+          {included.map((item) => (
+            <li class="flex gap-2.5"><span class="text-terra-deep" aria-hidden="true">✓</span><span>{item}</span></li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-semibold">What it isn't</h2>
+        <ul class="mt-4 space-y-2.5 text-ink-soft">
+          {notIncluded.map((item) => (
+            <li class="flex gap-2.5"><span class="text-ink-soft" aria-hidden="true">—</span><span>{item}</span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <PageIntro title="Pricing questions" />
+    <Faq items={faqItems} withSchema />
+  </section>
+
+  <CtaBlock
+    headline="One honest answer usually pays for itself."
+    message={WA_MESSAGES.pricing}
+    label="Ask us one question"
+  >
+    <p>One avoided scam, one fair contract, one saved afternoon at the right office — ask first, decide better.</p>
+    <Fragment slot="footnote">Not sure your question is "worth bothering us"? It is. Small questions are the job.</Fragment>
+  </CtaBlock>
+</BaseLayout>

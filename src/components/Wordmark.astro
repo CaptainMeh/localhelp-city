@@ -1,0 +1,11 @@
+---
+/** The wordmark is typography, not a logo: localhelp.city, always lowercase. */
+interface Props {
+  size?: 'base' | 'lg';
+}
+const { size = 'base' } = Astro.props;
+---
+
+<span class:list={['font-display font-semibold tracking-tight', size === 'lg' ? 'text-3xl' : 'text-xl']}>
+  <span class="text-ink">localhelp</span><span class="text-terra">.city</span>
+</span>

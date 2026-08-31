@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Hero from '../../../components/Hero.astro';
+import PageIntro from '../../../components/PageIntro.astro';
+import GuideCard from '../../../components/GuideCard.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import WhatsAppButton from '../../../components/WhatsAppButton.astro';
+import { WA_MESSAGES } from '../../../lib/site';
+import { localBusinessSchema } from '../../../lib/schema';
+
+/**
+ * Guide articles are being written — the housing cluster publishes first.
+ * When an article goes live, give its card an `href` and remove `comingSoon`.
+ */
+const categories = [
+  {
+    name: 'Housing',
+    guides: [
+      { title: 'How to avoid rental scams in Cluj-Napoca', description: 'The scam patterns we see every month, the red flags in listings and landlords, and the golden rule: never pay before you view and verify.' },
+      { title: 'Best neighborhoods in Cluj for students', description: 'Centru, Zorilor, Gheorgheni, Mărăști, Mănăștur, Grigorescu — honest pros, cons, and who each one suits.' },
+      { title: 'How to rent an apartment in Cluj (step by step)', description: 'From listing sources to move-in day: budget, viewings, contracts, registration, photos, meter readings.' },
+      { title: 'Apartment viewing checklist', description: 'What to check, what to ask, and how to decide without pressure.' },
+      { title: 'Landlord red flags: when to walk away', description: 'Pressure tactics, money red flags, contract red flags — and the normal-in-Cluj things that aren\'t red flags.' },
+      { title: 'Rental contracts in Romania, explained simply', description: 'Deposits, notice periods, utilities, registration, and the clauses worth a second look.' },
+      { title: 'How much does rent cost in Cluj?', description: 'Realistic ranges by area and type, what pushes prices up, and when cheap is too cheap.' },
+    ],
+  },
+  {
+    name: 'Arriving & settling in',
+    guides: [
+      { title: 'Your first week in Cluj: the complete checklist', description: 'Day by day: SIM, transport, groceries, registration, bank groundwork — and what genuinely waits.' },
+      { title: 'Public transport in Cluj', description: 'Tickets, validation, passes, and the apps locals actually use.' },
+      { title: 'SIM cards and mobile plans in Romania', description: 'Prepaid vs subscription, what ID you need, realistic costs.' },
+      { title: 'Winter in Cluj: what to prepare for', description: 'Heating bills, what to wear, getting around in snow, and staying well through the grey weeks.' },
+    ],
+  },
+  {
+    name: 'Paperwork & official stuff',
+    guides: [
+      { title: 'Student paperwork in Romania, explained simply', description: 'The core documents, EU vs non-EU paths, and the order to do things in.' },
+      { title: 'Residence permit for students: a practical orientation', description: 'What to prepare and where to go — with official sources always having the final word.' },
+      { title: 'Lost your passport or ID in Cluj? Exact steps', description: 'Calm, in order: retrace, police report, embassy or reissue, temporary documents.' },
+    ],
+  },
+  {
+    name: 'Money & everyday life',
+    guides: [
+      { title: 'Cost of living in Cluj: a realistic monthly budget', description: 'Rent, food, transport, phone, going out — modest and comfortable versions.' },
+      { title: 'Where to shop cheaply in Cluj', description: 'Supermarkets ranked by budget, markets, second-hand, and the overpriced traps near campuses.' },
+      { title: 'Opening a bank account in Romania', description: 'Documents, bank vs app options, and common snags for internationals.' },
+      { title: 'Finding a doctor in Cluj', description: 'Family doctors, dentists, pharmacies, English-speaking care — and how the system works here.' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Guides to Life in Cluj — Honest, Local, Free"
+  description="Free practical guides to living in Cluj-Napoca: rental scams, neighborhoods, first-week checklist, paperwork, costs. Written by the local team at localhelp.city."
+  path="/cluj/guides/"
+  schema={[localBusinessSchema()]}
+>
+  <Hero headline="Guides to life in Cluj — honest, local, free.">
+    <Fragment slot="lead">
+      <p>
+        We publish practical guides about the things people new to Cluj actually struggle with —
+        free, whether you ever pay us or not. Written by the same people who answer your
+        messages, updated when the city changes.
+      </p>
+      <p>
+        The first guides are being written now, housing first. Until yours is up:
+        the answer is one message away.
+      </p>
+    </Fragment>
+    <Fragment slot="cta">
+      <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
+    </Fragment>
+  </Hero>
+
+  {
+    categories.map((cat) => (
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
+        <PageIntro title={cat.name} />
+        <div class="grid gap-5 mt-8 sm:grid-cols-2 lg:grid-cols-3">
+          {cat.guides.map((g) => (
+            <GuideCard title={g.title} description={g.description} comingSoon />
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  <CtaBlock
+    headline="Reading because it's happening to you right now?"
+    message={WA_MESSAGES.general}
+    label="Ask us one question"
+  >
+    <p>
+      A guide is general; your situation isn't. Message us the specifics and get an answer about
+      <em>your</em> listing, <em>your</em> paperwork, <em>your</em> street.
+    </p>
+    <Fragment slot="footnote">If the answer helped, pay what feels fair while we're new.</Fragment>
+  </CtaBlock>
+</BaseLayout>

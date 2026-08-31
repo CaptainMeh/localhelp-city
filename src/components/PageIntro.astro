@@ -1,0 +1,16 @@
+---
+/** Section heading + optional lead paragraph, used to open page sections. */
+interface Props {
+  title: string;
+  id?: string;
+  center?: boolean;
+}
+const { title, id, center = false } = Astro.props;
+---
+
+<div class:list={['max-w-3xl', center && 'mx-auto text-center']} id={id}>
+  <h2 class="text-3xl md:text-4xl font-semibold">{title}</h2>
+  <div class="mt-4 text-ink-soft text-lg space-y-4">
+    <slot />
+  </div>
+</div>

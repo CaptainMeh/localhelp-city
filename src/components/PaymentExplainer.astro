@@ -1,0 +1,53 @@
+---
+/**
+ * The launch model, explained: ask → we answer → payment link with a suggested
+ * range → you choose what feels fair. Anchors are guidance, never tiers.
+ */
+import { ANCHORS, WA_MESSAGES } from '../lib/site';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+  /** Show the full anchors list (pricing page) or the short version (other pages). */
+  full?: boolean;
+}
+const { full = true } = Astro.props;
+---
+
+<div class="bg-paper border border-terra-soft rounded-2xl p-6 md:p-8">
+  <h3 class="font-display text-2xl font-semibold">Ask someone local. Pay what feels fair.</h3>
+  <p class="mt-3 text-ink-soft max-w-2xl">
+    We're just starting in Cluj, so early users can pay what feels fair. Ask us a real
+    question. We answer properly. If it helped, we'll send a payment link with a
+    suggested range, and you choose what feels fair.
+  </p>
+  <p class="mt-2 text-ink-soft max-w-2xl">
+    No awkward follow-ups, no pressure — just a fair suggestion after we help.
+  </p>
+
+  {
+    full && (
+      <>
+        <h4 class="mt-6 font-semibold text-ink">
+          What people usually pay <span class="font-normal text-ink-soft">(a feel for it, not a menu)</span>
+        </h4>
+        <ul class="mt-3 space-y-2.5">
+          {ANCHORS.map((a) => (
+            <li class="flex flex-wrap items-baseline gap-x-2 border-b border-terra-soft/70 pb-2.5 last:border-0">
+              <span class="font-medium">{a.label}</span>
+              <span class="text-ink-soft text-sm">— {a.detail}</span>
+              <span class="ml-auto font-semibold text-terra-deep whitespace-nowrap">{a.range}</span>
+            </li>
+          ))}
+        </ul>
+        <p class="mt-4 text-sm text-ink-soft italic">
+          If the suggested range doesn't fit your situation, choose what feels fair.
+        </p>
+      </>
+    )
+  }
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <WhatsAppButton message={WA_MESSAGES.pricing} label="Ask us one question" variant="primary" />
+    <WhatsAppButton message={WA_MESSAGES.inPerson} label="Ask about in-person help" variant="secondary" />
+  </div>
+</div>

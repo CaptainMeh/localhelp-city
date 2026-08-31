@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Wordmark from '../components/Wordmark.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { WA_MESSAGES, SITE } from '../lib/site';
+import { organizationSchema } from '../lib/schema';
+---
+
+<BaseLayout
+  title="localhelp.city — Local Help for Anyone New in Town"
+  description="Moving somewhere new? localhelp.city gives you a real local person on WhatsApp for the small, confusing parts of a new city. Starting in Cluj-Napoca, Romania."
+  path="/"
+  schema={[organizationSchema()]}
+>
+  <!-- One warm gateway screen: say the idea, hand people to Cluj. -->
+  <section class="bg-paper">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+      <h1 class="text-4xl md:text-5xl font-semibold">Every city has locals. Now you know one.</h1>
+
+      <div class="mt-6 text-lg text-ink-soft space-y-4">
+        <p>
+          Moving somewhere new — for university, for work, for a season, for a fresh start?
+          The hard part is never one big thing. It's the fifty small things nobody explains:
+          the listing, the deposit, the contract, the office, the neighborhood, the
+          <em>“is this normal here?”</em>
+        </p>
+        <p>
+          <strong class="text-ink"><Wordmark /></strong> is a simple answer: a small, real, local
+          team you can message on WhatsApp — before you sign, pay, book, visit, decide, or panic.
+        </p>
+        <p>
+          We're starting where we live: <strong class="text-ink">Cluj-Napoca, Romania.</strong> A real
+          office in the centre, real faces, English and Romanian, led by a local PhD. And because
+          we're just starting, early users pay what feels fair: ask us a real question, use the
+          answer, and if it helped, pay what you think it was worth.
+        </p>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
+        <a
+          href="/cluj/"
+          class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-xl px-6 py-3 transition-colors"
+        >
+          Go to localhelp.city/cluj →
+        </a>
+      </div>
+
+      <p class="mt-10 text-ink-soft text-sm border-t border-terra-soft pt-6">
+        More cities will come when we find local teams we'd trust with our own family's
+        questions. For now: Cluj, done properly.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
