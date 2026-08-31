@@ -17,7 +17,7 @@ interface Props {
   schema?: object[];
 }
 
-const { title, description, path, ogImage = '/images/og-default.svg', schema = [] } = Astro.props;
+const { title, description, path, ogImage = '/images/og-default.png', schema = [] } = Astro.props;
 
 const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 const canonical = new URL(path, SITE.url).href;
