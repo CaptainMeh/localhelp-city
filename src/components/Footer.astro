@@ -1,71 +1,74 @@
 ---
-import { NAV, SITE, WA_MESSAGES } from '../lib/site';
-import Wordmark from './Wordmark.astro';
+import { SITE, WA_MESSAGES } from '../lib/site';
 import WhatsAppButton from './WhatsAppButton.astro';
 
 const year = new Date().getFullYear();
 
-const cityPages = [
+const clujPages = [
+  { label: 'Housing help', href: '/cluj/housing-help/' },
+  { label: 'Paperwork help', href: '/cluj/paperwork-help/' },
   { label: 'Student support', href: '/cluj/student-support/' },
   { label: 'New to Cluj', href: '/cluj/foreigner-support/' },
   { label: 'For parents', href: '/cluj/for-parents/' },
-  { label: 'Housing help', href: '/cluj/housing-help/' },
-  { label: 'Paperwork help', href: '/cluj/paperwork-help/' },
   { label: 'Guides', href: '/cluj/guides/' },
+];
+
+const sitePages = [
+  { label: 'Cluj', href: '/cluj/' },
+  { label: 'How it works', href: '/how-it-works/' },
+  { label: 'Pricing', href: '/cluj/pricing/' },
+  { label: 'About', href: '/about/' },
 ];
 ---
 
-<footer class="bg-ink text-cream mt-20">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-    <div class="grid gap-10 md:grid-cols-3">
-      <div>
+<footer class="bg-espresso text-cream mt-24">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+    <div class="grid gap-8 md:gap-10 grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1.4fr]">
+      <div class="col-span-2 md:col-span-1">
         <span class="font-display font-semibold text-xl">
           <span class="text-cream">localhelp</span><span class="text-honey">.city</span>
         </span>
-        <p class="mt-3 text-cream/80 max-w-xs">
-          Someone local when Cluj gets confusing.
-        </p>
-        <p class="mt-3 text-cream/80 max-w-xs italic">
-          Before you sign, pay, book, visit, decide, or panic — ask someone local.
+        <p class="mt-3 text-cream/75 max-w-xs">
+          Someone local when Cluj gets confusing. Before you sign, pay, book, visit, decide,
+          or panic — ask someone local.
         </p>
         <div class="mt-5">
           <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" class="text-sm" />
         </div>
       </div>
 
-      <div class="grid grid-cols-2 gap-8">
-        <nav aria-label="Footer">
-          <h2 class="font-semibold text-cream mb-3 text-sm uppercase tracking-wide">Explore</h2>
-          <ul class="space-y-2">
-            {NAV.map((item) => (
-              <li><a href={item.href} class="text-cream/80 hover:text-honey">{item.label}</a></li>
-            ))}
-          </ul>
-        </nav>
-        <nav aria-label="Cluj pages">
-          <h2 class="font-semibold text-cream mb-3 text-sm uppercase tracking-wide">In Cluj</h2>
-          <ul class="space-y-2">
-            {cityPages.map((item) => (
-              <li><a href={item.href} class="text-cream/80 hover:text-honey">{item.label}</a></li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+      <nav aria-label="In Cluj">
+        <h2 class="font-semibold text-cream/95 mb-3 text-sm uppercase tracking-wide">In Cluj</h2>
+        <ul class="space-y-2">
+          {clujPages.map((item) => (
+            <li><a href={item.href} class="text-cream/75 hover:text-honey">{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
 
-      <div>
-        <h2 class="font-semibold text-cream mb-3 text-sm uppercase tracking-wide">Find us</h2>
-        <address class="not-italic text-cream/80 space-y-1">
+      <nav aria-label="Site">
+        <h2 class="font-semibold text-cream/95 mb-3 text-sm uppercase tracking-wide">localhelp.city</h2>
+        <ul class="space-y-2">
+          {sitePages.map((item) => (
+            <li><a href={item.href} class="text-cream/75 hover:text-honey">{item.label}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <div class="col-span-2 md:col-span-1">
+        <h2 class="font-semibold text-cream/95 mb-3 text-sm uppercase tracking-wide">Find us</h2>
+        <address class="not-italic text-cream/75 space-y-1">
           <p>Central {SITE.office.locality}, Romania</p>
           <p><a href={`mailto:${SITE.email}`} class="hover:text-honey">{SITE.email}</a></p>
         </address>
-        <p class="mt-5 text-cream/70 text-sm max-w-xs">
-          We're a small local team — not lawyers, doctors, or officials, and not an
-          emergency service. <strong class="text-cream">In any real emergency, call 112 first.</strong>
+        <p class="mt-5 text-cream/65 text-sm max-w-xs">
+          We're not lawyers, doctors, or officials — and not an emergency service.
+          <strong class="text-cream/90"> In any real emergency, call 112 first.</strong>
         </p>
       </div>
     </div>
 
-    <div class="mt-10 pt-6 border-t border-cream/15 text-sm text-cream/60 flex flex-wrap gap-x-6 gap-y-2 justify-between">
+    <div class="mt-10 pt-6 border-t border-cream/10 text-sm text-cream/55 flex flex-wrap gap-x-6 gap-y-2 justify-between">
       <p>© {year} localhelp.city — made in Cluj-Napoca.</p>
       <p>More cities when we find the right local teams.</p>
     </div>

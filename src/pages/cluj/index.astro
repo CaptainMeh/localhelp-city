@@ -3,11 +3,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import TrustStrip from '../../components/TrustStrip.astro';
 import PageIntro from '../../components/PageIntro.astro';
+import ServicesGrid from '../../components/ServicesGrid.astro';
 import SectionCards from '../../components/SectionCards.astro';
 import ChatExample from '../../components/ChatExample.astro';
 import TeamSection from '../../components/TeamSection.astro';
-import HonestLimits from '../../components/HonestLimits.astro';
-import GuideCard from '../../components/GuideCard.astro';
 import Faq from '../../components/Faq.astro';
 import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
@@ -18,75 +17,23 @@ const whoCards = [
   {
     icon: '🎓',
     title: 'Students',
-    body: 'New at UBB, UMF, UTCN, USAMV — or moving to Cluj from another Romanian city. Housing, paperwork, budgets, and the first-semester scramble.',
+    body: 'New at UBB, UMF, UTCN, USAMV — or moving from another Romanian city. Housing, paperwork, budgets, first semester.',
     href: '/cluj/student-support/',
-    linkLabel: 'Student support in Cluj',
+    linkLabel: 'Student support',
   },
   {
     icon: '🌍',
     title: 'New to Cluj — from abroad or anywhere',
-    body: "Maybe you're here with a job offer, with your family, with a laptop for a season, or starting a whole new life. Different stories, same fifty questions.",
+    body: 'Here with a job offer, a family, a laptop for a season, or a whole new life. Different stories, same fifty questions.',
     href: '/cluj/foreigner-support/',
-    linkLabel: 'Someone local to ask in Cluj',
+    linkLabel: 'Someone local to ask',
   },
   {
     icon: '❤️',
     title: 'Parents',
-    body: "Your child is moving here and you'd sleep better knowing they have someone local to ask. So would they, honestly.",
+    body: "Your child is moving here and you'd sleep better knowing they have someone local to ask. So would they.",
     href: '/cluj/for-parents/',
     linkLabel: 'For parents',
-  },
-];
-
-const helpCards = [
-  {
-    icon: '🏠',
-    title: 'Housing & renting',
-    body: "Is the listing safe? Is the rent fair? Which neighborhood suits you? What to ask at a viewing, what's normal in contracts and deposits, what to do when the landlord surprises you.",
-    href: '/cluj/housing-help/',
-    linkLabel: 'Housing help',
-  },
-  {
-    icon: '📄',
-    title: 'Paperwork & offices',
-    body: 'Which documents you need, which office handles what, how appointments work here, and how to prepare so one trip is enough.',
-    href: '/cluj/paperwork-help/',
-    linkLabel: 'Paperwork help',
-  },
-  {
-    icon: '💳',
-    title: 'Money & getting set up',
-    body: 'Bank account, SIM card, utilities, where locals shop without overpaying, what things should roughly cost.',
-  },
-  {
-    icon: '🩺',
-    title: 'Health & wellbeing basics',
-    body: 'Finding a family doctor, dentist, pharmacy, or therapist — including ones who speak English. (We help you find care; we never give medical advice.)',
-  },
-  {
-    icon: '🚌',
-    title: 'Getting around & daily life',
-    body: 'Transport, the apps locals actually use, gyms, salons, repairs, the small daily decisions that add up.',
-  },
-  {
-    icon: '😰',
-    title: 'When something goes wrong',
-    body: "Lost documents, a landlord dispute, a bill that looks wrong, a situation you don't understand. We help you find the next step. (Real emergencies: call 112 first, always.)",
-  },
-];
-
-const guidePreviews = [
-  {
-    title: 'How to avoid rental scams in Cluj-Napoca',
-    description: 'The red flags we see every month, and the golden rule that prevents most disasters.',
-  },
-  {
-    title: 'Best neighborhoods in Cluj for students',
-    description: 'Honest pros and cons, by university and budget — including the trade-offs listing sites skip.',
-  },
-  {
-    title: 'Your first week in Cluj: the complete checklist',
-    description: 'Everything to set up, in order, without panic — SIM, transport, groceries, registration.',
   },
 ];
 
@@ -120,70 +67,74 @@ const faqItems = [
 
 <BaseLayout
   title="New in Cluj? Someone Local to Ask"
-  description="Someone local when Cluj gets confusing. Practical, English-speaking guidance for students, internationals, and newcomers in Cluj-Napoca — on WhatsApp. Ask a question, pay what feels fair."
+  description="Ask a real local person about living in Cluj-Napoca — housing, paperwork, prices, arrival, everyday problems. On WhatsApp, in English. A real person replies, usually within a few hours."
   path="/cluj/"
   schema={[localBusinessSchema()]}
 >
   <Hero
     headline="New in Cluj? You know someone here now."
-    coreSentence={SITE.coreSentence}
-    image={{ src: '/images/moving-in.webp', alt: 'Two people unpacking moving boxes in a bright apartment' }}
+    image={{ src: '/images/student-cafe.webp', alt: 'Sitting at an outdoor café table on an old street in central Cluj', width: 820, height: 1093 }}
+    immersive
   >
     <Fragment slot="lead">
       <p>
-        Whatever brought you to Cluj — university, a job, a person, a plan, a fresh start — the
-        city works the same way for everyone at the beginning: fifty small confusing things, all
-        at once, in a language you may not speak yet.
+        Ask a real local person your questions about living in Cluj — on WhatsApp, in English.
+        <strong class="text-ink">Housing, paperwork, prices, arrival, everyday problems.</strong>
       </p>
-      <p>
-        We're a small local team in the centre of Cluj. You can ask us the everyday questions of
-        living here, on WhatsApp, in English: <em>Is this rent normal? Is this listing real?
-        Which neighborhood? What documents? Where do I even go for this?</em>
-      </p>
-      <p>
-        And because we're just starting in Cluj, <strong class="text-ink">early users pay what
-        feels fair</strong> — ask us a real question, use the answer, and if it helped, pay what
-        you think it was worth.
+      <p class="font-display text-ink border-l-4 border-honey pl-4">
+        Before you sign, pay, book, visit, decide, or panic — ask someone local.
       </p>
     </Fragment>
     <Fragment slot="cta">
       <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
-      <WhatsAppButton message={WA_MESSAGES.general} label="Get local guidance" variant="secondary" />
+      <a href="#services" class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-full px-7 py-3 transition-colors">
+        See what we help with
+      </a>
     </Fragment>
-    <Fragment slot="reassurance">A real person replies, usually within a few hours.</Fragment>
+    <Fragment slot="reassurance">
+      A real person replies, usually within a few hours. While we're new, you choose what to pay.
+    </Fragment>
   </Hero>
 
   <TrustStrip />
 
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-12 md:mt-16 scroll-mt-24" id="services">
+    <PageIntro title="What you can ask us about">
+      <p>If it's part of living in Cluj, it's probably in here. If it isn't — ask anyway.</p>
+    </PageIntro>
+    <ServicesGrid />
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-14 md:mt-20">
     <PageIntro title="Who it's for">
-      <p>One kind of help, three front doors. Pick yours — or don't; nobody fits boxes perfectly. Just message us.</p>
+      <p>One kind of help, three front doors. Nobody fits boxes perfectly — just message us.</p>
     </PageIntro>
     <SectionCards cards={whoCards} columns={3} />
   </section>
 
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
-    <PageIntro title="The everyday stuff we help with">
-      <p>
-        Not sure your question fits? Ask anyway. If we can't help, we'll say so honestly — and
-        point you to someone who can.
-      </p>
-    </PageIntro>
-    <SectionCards cards={helpCards} columns={3} />
-  </section>
-
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
-    <div class="grid gap-10 md:grid-cols-2 items-start">
-      <PageIntro title="How it works">
-        <ol class="space-y-4 list-none">
-          <li><strong class="text-ink">1. Message us on WhatsApp.</strong> Any everyday question about living in Cluj.</li>
-          <li><strong class="text-ink">2. A local answers.</strong> Not a bot, not a script — a person who lives here, with practical advice and honest limits.</li>
-          <li><strong class="text-ink">3. If it helped, pay what feels fair.</strong> We send a payment link with a suggested range, and you choose. Bigger jobs we agree on together before starting.</li>
-          <li><strong class="text-ink">4. Want someone there in person?</strong> Viewings, offices, meetings — we can often come along. By the hour, price agreed in advance, always your call.</li>
-        </ol>
-        <p><a href="/how-it-works/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">More about how it works →</a></p>
-      </PageIntro>
-      <div class="md:pt-14">
+  <section class="bg-paper border-y border-terra-soft mt-14 md:mt-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-14">
+      <div class="grid gap-10 md:grid-cols-2 items-start">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-semibold">How it works</h2>
+          <ol class="mt-6 space-y-4 text-lg text-ink-soft">
+            <li class="flex gap-3.5">
+              <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">1</span>
+              <span><strong class="text-ink">Message us on WhatsApp</strong> — any everyday question about living in Cluj.</span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">2</span>
+              <span><strong class="text-ink">A local answers, properly</strong> — practical advice from a person who lives here, usually within a few hours.</span>
+            </li>
+            <li class="flex gap-3.5">
+              <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">3</span>
+              <span><strong class="text-ink">If it helped, pay what feels fair</strong> — we send a payment link with a suggested range (a small question is usually €3–5) and you choose. Bigger jobs and in-person help are agreed in advance.</span>
+            </li>
+          </ol>
+          <p class="mt-6">
+            <a href="/how-it-works/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">The full picture, including suggested ranges →</a>
+          </p>
+        </div>
         <ChatExample
           question="Hi! Found a studio in Mănăștur, 320€, landlord wants two months' deposit + first month before viewing. Normal?"
           answer="Paying anything before a viewing is a red flag here — please don't send money yet. Two months' deposit happens in Cluj but it's on the higher side. Send us the listing? We'll tell you what we'd check."
@@ -194,21 +145,23 @@ const faqItems = [
 
   <TeamSection />
 
-  <HonestLimits />
-
-  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
-    <PageIntro title="Free guides to life in Cluj">
-      <p>Honest, practical guides about the things people actually struggle with here — free, whether you ever pay us or not.</p>
-    </PageIntro>
-    <div class="grid gap-5 mt-10 sm:grid-cols-2 lg:grid-cols-3">
-      {guidePreviews.map((g) => <GuideCard title={g.title} description={g.description} comingSoon />)}
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-12 md:mt-16">
+    <div class="border-l-4 border-terra-soft pl-5 text-ink-soft space-y-3">
+      <p>
+        <strong class="text-ink">Plainly, what we're not:</strong> lawyers, doctors, police,
+        university staff, or immigration officials — when a question needs one of those, we say
+        so and help you find the right one. Not an emergency service either:
+        <strong class="text-ink">in any real emergency, call 112 first.</strong>
+      </p>
+      <p>
+        We don't promise to solve everything. We promise you'll always have someone local, kind,
+        and competent to ask — and you'll always leave knowing what to do next.
+        <a href="/how-it-works/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">More on how we work →</a>
+      </p>
     </div>
-    <a href="/cluj/guides/" class="inline-block mt-6 font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">
-      View all guides →
-    </a>
   </section>
 
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-20">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-14 md:mt-20">
     <PageIntro title="Common questions" />
     <Faq items={faqItems} withSchema />
   </section>
@@ -220,9 +173,8 @@ const faqItems = [
   >
     <p>
       Every autumn and every Monday, someone new arrives in this city and learns everything the
-      hard way. You don't have to. There's someone local when Cluj gets confusing — and while
-      we're new, you decide what our help was worth.
+      hard way. You don't have to.
     </p>
-    <Fragment slot="footnote">One question, one honest local answer. If it helped, pay what feels fair. That's the whole deal.</Fragment>
+    <Fragment slot="footnote">One question, one honest local answer. If it helped, pay what feels fair.</Fragment>
   </CtaBlock>
 </BaseLayout>

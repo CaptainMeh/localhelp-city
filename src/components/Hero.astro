@@ -1,6 +1,8 @@
 ---
 /**
- * Page hero: kicker, headline, lead, CTAs (via slot), optional image.
+ * Page hero. With `immersive`, the image gets real presence: it fills its
+ * column edge-to-edge on desktop and shows as a wide crop on mobile below
+ * the CTA (so the primary action never gets pushed down).
  */
 interface Props {
   kicker?: string;
@@ -8,16 +10,27 @@ interface Props {
   /** Optional highlighted core sentence under the lead. */
   coreSentence?: string;
   image?: { src: string; alt: string; width?: number; height?: number };
+  immersive?: boolean;
 }
-const { kicker, headline, coreSentence, image } = Astro.props;
+const { kicker, headline, coreSentence, image, immersive = false } = Astro.props;
 ---
 
-<section class="bg-paper border-b border-terra-soft">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
-    <div class:list={['grid gap-10 items-center', image ? 'md:grid-cols-2' : 'max-w-3xl']}>
-      <div>
+<section class="bg-paper border-b border-terra-soft overflow-hidden">
+  <div
+    class:list={[
+      'max-w-6xl mx-auto px-4 sm:px-6',
+      immersive ? 'py-10 md:py-16' : 'py-14 md:py-20',
+    ]}
+  >
+    <div
+      class:list={[
+        'grid gap-8 md:gap-12',
+        image ? (immersive ? 'md:grid-cols-[1.05fr_1fr] items-stretch' : 'md:grid-cols-2 items-center') : 'max-w-3xl',
+      ]}
+    >
+      <div class:list={[immersive && 'md:py-6 self-center']}>
         {kicker && <p class="text-terra-deep font-semibold uppercase tracking-wide text-sm mb-3">{kicker}</p>}
-        <h1 class="text-4xl md:text-5xl font-semibold">{headline}</h1>
+        <h1 class="text-4xl md:text-5xl font-semibold text-balance">{headline}</h1>
         <div class="mt-5 text-lg text-ink-soft space-y-4">
           <slot name="lead" />
         </div>
@@ -37,8 +50,22 @@ const { kicker, headline, coreSentence, image } = Astro.props;
       </div>
       {
         image && (
-          <div class="rounded-2xl overflow-hidden border border-terra-soft bg-cream">
-            <img src={image.src} alt={image.alt} class="w-full h-auto" loading="eager" width={image.width ?? 800} height={image.height ?? 600} />
+          <div
+            class:list={[
+              'overflow-hidden',
+              immersive
+                ? 'rounded-3xl md:rounded-[2rem] aspect-[16/10] md:aspect-auto md:min-h-[460px]'
+                : 'rounded-2xl border border-terra-soft bg-cream',
+            ]}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              class:list={['w-full h-full', immersive ? 'object-cover' : 'object-contain h-auto']}
+              loading="eager"
+              width={image.width ?? 800}
+              height={image.height ?? 600}
+            />
           </div>
         )
       }

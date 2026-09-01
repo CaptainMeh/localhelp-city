@@ -52,15 +52,21 @@ const steps = [
   </Hero>
 
   <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">
-    <div class="grid gap-5 sm:grid-cols-2">
+    <div class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
       {steps.map((step) => (
-        <div class="bg-cream border border-terra-soft rounded-2xl p-6">
-          <span class="font-display text-3xl text-terra" aria-hidden="true">{step.n}</span>
-          <h2 class="font-semibold text-xl mt-2">{step.title}</h2>
-          <p class="mt-2.5 text-ink-soft">{step.body}</p>
+        <div class="flex gap-4">
+          <span class="shrink-0 w-11 h-11 rounded-full bg-honey-soft text-terra-deep font-display font-semibold text-xl flex items-center justify-center" aria-hidden="true">{step.n}</span>
+          <div>
+            <h2 class="font-semibold text-xl">{step.title}</h2>
+            <p class="mt-1.5 text-ink-soft">{step.body}</p>
+          </div>
         </div>
       ))}
     </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
+    <PaymentExplainer full />
   </section>
 
   <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">
@@ -77,10 +83,6 @@ const steps = [
         answer="You're looking at ANAF for this one — I'll send you the address of the right office for your neighborhood. Bring your ID, the signed contract (two copies), and your landlord ideally comes too. Go before 11 if you can; the queue doubles after lunch. Want me to walk you through the form?"
       />
     </div>
-  </section>
-
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
-    <PaymentExplainer full />
   </section>
 
   <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">

@@ -1,48 +1,48 @@
 ---
-/** Team / office trust block with placeholder photo, ready for real photography. */
+/** Team / office trust block. Concrete, understated — the service is the point, not the team. */
 interface Props {
   title?: string;
   compact?: boolean;
 }
-const { title = 'A small local team, actually in Cluj', compact = false } = Astro.props;
+const { title = 'The people who answer', compact = false } = Astro.props;
 ---
 
-<section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 mt-14 md:mt-20">
   <div class="grid gap-10 md:grid-cols-2 items-center">
     <div>
       <h2 class="text-3xl md:text-4xl font-semibold">{title}</h2>
       <div class="mt-4 text-ink-soft text-lg space-y-4">
         <slot>
           <p>
-            We're not an app or a call center — we're a few people with an office in the
-            centre of Cluj-Napoca, started by a local PhD who had helped one too many
-            newcomers decode a rental contract or find the right office window.
+            We're a small local team with an office in the centre of Cluj-Napoca — not a
+            platform, an app, or a call center. When you message, a real person who lives
+            here reads it and answers.
           </p>
           <p>
-            We know this city from the inside: the universities, the neighborhoods, the
-            rental habits, the fair prices, the shortcuts, and the unwritten rules
-            official guides never mention.
-          </p>
-          <p class="font-medium text-ink">
-            When you message, one of us reads it and answers. That's the entire product.
+            <strong class="text-ink">Michael is usually the one who answers.</strong> He's from
+            Cluj, studied at several universities here and abroad, and is the person friends
+            call when something needs to get sorted.
           </p>
         </slot>
       </div>
       {!compact && (
         <a href="/about/" class="inline-block mt-5 font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">
-          Meet the team →
+          More about us →
         </a>
       )}
     </div>
-    <div class="rounded-2xl overflow-hidden border border-terra-soft">
-      <img
-        src="/images/team.webp"
-        alt="The localhelp.city team talking around a laptop at a shared table"
-        class="w-full h-auto"
-        loading="lazy"
-        width="800"
-        height="600"
-      />
-    </div>
+    <figure>
+      <div class="rounded-3xl overflow-hidden">
+        <img
+          src="/images/team.webp"
+          alt="Working around a laptop at a shared table in Cluj"
+          class="w-full h-auto"
+          loading="lazy"
+          width="1400"
+          height="870"
+        />
+      </div>
+      <figcaption class="mt-2.5 text-sm text-ink-soft italic">A working afternoon in Cluj.</figcaption>
+    </figure>
   </div>
 </section>

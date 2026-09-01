@@ -22,6 +22,9 @@
   --color-honey: #e0a83f;
   --color-honey-soft: #f7ecd6;
 
+  /* Footer: warm espresso — dark warm brown that sits naturally with cream + terracotta */
+  --color-espresso: #2b2119;
+
   /* WhatsApp green — only on actual WhatsApp buttons */
   --color-wa: #1fa855;
   --color-wa-deep: #178743;
@@ -41,10 +44,12 @@ body {
   line-height: 1.65;
 }
 
-h1, h2, h3, h4 {
-  @apply font-display text-ink;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+@layer base {
+  h1, h2, h3, h4 {
+    @apply font-display text-ink;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
 }
 
 /* Details/summary FAQ affordance without JS */

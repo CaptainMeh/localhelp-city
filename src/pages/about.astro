@@ -19,15 +19,11 @@ import EditorialImage from '../components/EditorialImage.astro';
   <Hero headline="A small local team, actually in Cluj.">
     <Fragment slot="lead">
       <p>
-        localhelp.city started the way most useful things do: with a problem that kept repeating.
-        Our founder — a local PhD who has spent years around Cluj's universities — had helped one
-        too many friends-of-friends decode a rental contract, find the right office window, or
-        figure out whether a "great deal" was actually a scam.
-      </p>
-      <p>
-        The pattern was always the same: the problem was small, the stress was big, and the
-        missing ingredient was never intelligence — it was local context. So we made local
-        context something you can simply ask for.
+        localhelp.city started the way most useful things do: with a problem that kept
+        repeating. Michael — born in Cluj, with years spent around the city's universities —
+        had helped one too many friends-of-friends decode a rental contract, find the right
+        office window, or spot a rental scam. The missing ingredient was never intelligence;
+        it was local context. So we made local context something you can simply ask for.
       </p>
     </Fragment>
     <Fragment slot="cta">
@@ -39,26 +35,28 @@ import EditorialImage from '../components/EditorialImage.astro';
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
     <div class="grid gap-10 md:grid-cols-2 items-center">
-      <div class="rounded-2xl overflow-hidden border border-terra-soft">
-        <img
-          src="/images/team.webp"
-          alt="The localhelp.city team talking around a laptop at a shared table"
-          class="w-full h-auto"
-          loading="lazy"
-          width="800"
-          height="600"
-        />
-      </div>
+      <figure>
+        <div class="rounded-3xl overflow-hidden">
+          <img
+            src="/images/team.webp"
+            alt="Working around a laptop at a shared table in Cluj"
+            class="w-full h-auto"
+            loading="lazy"
+            width="1400"
+            height="870"
+          />
+        </div>
+        <figcaption class="mt-2.5 text-sm text-ink-soft italic">A working afternoon in Cluj.</figcaption>
+      </figure>
       <PageIntro title="Who we are">
         <p>
-          We're not a platform, an app, or a call center. We're a few people with an office in the
-          centre of Cluj-Napoca who know this city from the inside — the universities, the
-          neighborhoods, the rental habits, the good dentists, the fair prices, the shortcuts, and
-          the unwritten rules that official guides never explain.
+          We're a few people with an office in the centre of Cluj-Napoca who know this city
+          from the inside — the universities, the neighborhoods, the rental habits, the fair
+          prices, and the unwritten rules official guides never explain.
         </p>
         <p>
-          When you message us, a real person who lives here reads it and answers. That's the
-          entire product.
+          <strong class="text-ink">When you message us on WhatsApp, Michael is usually the
+          person who answers.</strong>
         </p>
         <p>
           Michael is from Cluj and has spent most of his life here, including studying at
@@ -99,11 +97,11 @@ import EditorialImage from '../components/EditorialImage.astro';
     <div class="grid gap-10 md:grid-cols-[2fr_3fr] items-center">
       <EditorialImage
         src="/images/candid-patrick.webp"
-        alt="Two friends at a wooden viewpoint above the gorge, on an ordinary weekend outside Cluj"
+        alt="Michael and a friend at a wooden viewpoint above the gorge, on an ordinary weekend outside Cluj"
         shape="print"
         width={1100}
         height={825}
-        caption="Knowing Cluj doesn't stop at the city limits — weekends tend to leak into the hills."
+        caption="Michael and a friend above the gorge outside Cluj — knowing the city doesn't stop at its limits."
       />
       <div class="text-lg text-ink-soft space-y-4">
         <p>
@@ -122,15 +120,11 @@ import EditorialImage from '../components/EditorialImage.astro';
   <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
     <PageIntro title="How we work">
       <p>
-        Warm, calm, honest, practical. We tell you what's normal here, what we'd check, and what
-        we'd do next — and when a question needs a professional (a lawyer, a doctor, an
-        official), we say so plainly and help you find the right one. We'd rather lose a payment
-        than give you a confident guess.
-      </p>
-      <p>
-        While we're new in Cluj, early users pay what feels fair: ask a real question, use the
-        answer, and choose what it was worth from a suggested range. In-person help is by the
-        hour, agreed in advance.
+        Warm, calm, honest, practical. We tell you what's normal here, what we'd check, and
+        what we'd do next — and when a question needs a professional, we say so plainly and
+        help you find the right one. We'd rather lose a payment than give you a confident
+        guess. While we're new, you pay what feels fair from a suggested range; in-person help
+        is by the hour, agreed in advance.
       </p>
     </PageIntro>
 

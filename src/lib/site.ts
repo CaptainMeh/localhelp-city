@@ -49,9 +49,9 @@ export const ANCHORS = [
 /** Main navigation. */
 export const NAV = [
   { label: 'Cluj', href: '/cluj/' },
+  { label: 'Services', href: '/cluj/#services' },
   { label: 'How it works', href: '/how-it-works/' },
   { label: 'Housing', href: '/cluj/housing-help/' },
-  { label: 'Guides', href: '/cluj/guides/' },
   { label: 'Pricing', href: '/cluj/pricing/' },
   { label: 'About', href: '/about/' },
 ];
