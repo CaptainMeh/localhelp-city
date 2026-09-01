@@ -9,13 +9,10 @@ export const SITE = {
   tagline: 'Someone local when Cluj gets confusing.',
   coreSentence:
     'Before you sign, pay, book, visit, decide, or panic — ask someone local.',
-  // TODO: replace with the real WhatsApp number before launch
-  whatsappNumber: '40000000000',
-  // TODO: replace with the real office address before launch (used in schema + footer)
+  whatsappNumber: '40748246019',
+  // Office address: street withheld until it's public — schema and footer say central Cluj only.
   office: {
-    streetAddress: 'Str. Example nr. 1', // placeholder
     locality: 'Cluj-Napoca',
-    postalCode: '400000', // placeholder
     country: 'RO',
   },
   email: 'hello@localhelp.city', // placeholder — confirm before launch

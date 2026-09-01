@@ -1,0 +1,27 @@
+---
+/**
+ * Photo inside a content block — organic, warm, never a plain rectangle
+ * unless asked. Keep photos close to their natural colours; shape does
+ * the design work, not filters.
+ *   shape: 'soft'   → large rounded corners
+ *          'blob'   → organic mask (use max once or twice per page)
+ *          'offset' → rounded card with warm offset shadow
+ *          'print'  → candid photo-print look with slight tilt
+ */
+interface Props {
+  src: string;
+  alt: string;
+  shape?: 'soft' | 'blob' | 'offset' | 'print';
+  caption?: string;
+  class?: string;
+  width?: number;
+  height?: number;
+}
+const { src, alt, shape = 'soft', caption, class: extra = '', width = 800, height = 600 } = Astro.props;
+const shapeClass = { soft: 'rounded-3xl', blob: 'img-blob', offset: 'img-offset', print: 'img-print' }[shape];
+---
+
+<figure class={extra}>
+  <img src={src} alt={alt} loading="lazy" class={`w-full h-auto ${shapeClass}`} {width} {height} />
+  {caption && <figcaption class="mt-3 text-sm text-ink-soft italic">{caption}</figcaption>}
+</figure>

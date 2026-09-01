@@ -70,6 +70,7 @@ const helpCards = [
   <Hero
     kicker="For students in Cluj"
     headline="Someone local to ask, before you sign, pay, or panic."
+    image={{ src: '/images/student-cafe.webp', alt: 'A student at an outdoor café table on an old street in Cluj', width: 820, height: 1093 }}
   >
     <Fragment slot="lead">
       <p>
@@ -84,7 +85,7 @@ const helpCards = [
     </Fragment>
     <Fragment slot="cta">
       <WhatsAppButton message={WA_MESSAGES.student} label="Ask us one question" variant="primary" />
-      <a href="/how-it-works/" class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-xl px-6 py-3 transition-colors">
+      <a href="/how-it-works/" class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-full px-7 py-3 transition-colors">
         See how it works
       </a>
     </Fragment>

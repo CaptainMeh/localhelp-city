@@ -7,6 +7,7 @@ import CtaBlock from '../components/CtaBlock.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { SITE, WA_MESSAGES } from '../lib/site';
 import { organizationSchema } from '../lib/schema';
+import EditorialImage from '../components/EditorialImage.astro';
 ---
 
 <BaseLayout
@@ -59,10 +60,13 @@ import { organizationSchema } from '../lib/schema';
           When you message us, a real person who lives here reads it and answers. That's the
           entire product.
         </p>
-        <p class="text-sm italic">
-          {/* TODO: replace with real team member names, photos, and one human line each */}
-          Team introductions — names, faces, and one human line each — are coming here soon,
-          along with a photo of the actual office door.
+        <p>
+          Michael is from Cluj and has spent most of his life here, including studying at
+          several universities in the city. He has also studied abroad, so he understands both
+          the local side of Cluj and the feeling of arriving somewhere new without knowing how
+          things work. With a wide local network, many qualifications, and a very practical
+          instinct for helping people, Michael is usually the person friends call when
+          something needs to get sorted.
         </p>
       </PageIntro>
     </div>
@@ -87,6 +91,30 @@ import { organizationSchema } from '../lib/schema';
           width="800"
           height="600"
         />
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-4 sm:px-6 mt-16">
+    <div class="grid gap-10 md:grid-cols-[2fr_3fr] items-center">
+      <EditorialImage
+        src="/images/candid-patrick.webp"
+        alt="Two friends at a wooden viewpoint above the gorge, on an ordinary weekend outside Cluj"
+        shape="print"
+        width={1100}
+        height={825}
+        caption="Knowing Cluj doesn't stop at the city limits — weekends tend to leak into the hills."
+      />
+      <div class="text-lg text-ink-soft space-y-4">
+        <p>
+          This started as a habit, not a business: friends of friends kept calling with the
+          same kinds of questions, and someone local kept answering them. At some point it
+          made sense to give that phone number a name.
+        </p>
+        <p>
+          So that's what localhelp.city is — the friend-of-a-friend who knows the city,
+          made available on purpose.
+        </p>
       </div>
     </div>
   </section>

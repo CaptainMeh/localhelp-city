@@ -4,6 +4,7 @@ import Wordmark from '../components/Wordmark.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { WA_MESSAGES, SITE } from '../lib/site';
 import { organizationSchema } from '../lib/schema';
+import EditorialImage from '../components/EditorialImage.astro';
 ---
 
 <BaseLayout
@@ -14,7 +15,8 @@ import { organizationSchema } from '../lib/schema';
 >
   <!-- One warm gateway screen: say the idea, hand people to Cluj. -->
   <section class="bg-paper">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-16 md:py-24 grid gap-12 md:grid-cols-[3fr_2fr] items-center">
+      <div>
       <h1 class="text-4xl md:text-5xl font-semibold">Every city has locals. Now you know one.</h1>
 
       <div class="mt-6 text-lg text-ink-soft space-y-4">
@@ -40,7 +42,7 @@ import { organizationSchema } from '../lib/schema';
         <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
         <a
           href="/cluj/"
-          class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-xl px-6 py-3 transition-colors"
+          class="inline-flex items-center gap-2 border-2 border-terra text-terra-deep hover:bg-terra-soft font-semibold rounded-full px-7 py-3 transition-colors"
         >
           Go to localhelp.city/cluj →
         </a>
@@ -50,6 +52,15 @@ import { organizationSchema } from '../lib/schema';
         More cities will come when we find local teams we'd trust with our own family's
         questions. For now: Cluj, done properly.
       </p>
+      </div>
+      <EditorialImage
+        src="/images/cluj-old-street.webp"
+        alt="An ordinary old street in Cluj with parked cars and warm evening light"
+        shape="blob"
+        width={1000}
+        height={800}
+        class="hidden md:block"
+      />
     </div>
   </section>
 </BaseLayout>

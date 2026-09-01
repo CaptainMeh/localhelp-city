@@ -27,9 +27,7 @@ export function localBusinessSchema() {
     priceRange: '€',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: SITE.office.streetAddress, // TODO: real address before launch
       addressLocality: SITE.office.locality,
-      postalCode: SITE.office.postalCode,
       addressCountry: SITE.office.country,
     },
     areaServed: {

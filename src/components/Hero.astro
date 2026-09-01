@@ -7,7 +7,7 @@ interface Props {
   headline: string;
   /** Optional highlighted core sentence under the lead. */
   coreSentence?: string;
-  image?: { src: string; alt: string };
+  image?: { src: string; alt: string; width?: number; height?: number };
 }
 const { kicker, headline, coreSentence, image } = Astro.props;
 ---
@@ -38,7 +38,7 @@ const { kicker, headline, coreSentence, image } = Astro.props;
       {
         image && (
           <div class="rounded-2xl overflow-hidden border border-terra-soft bg-cream">
-            <img src={image.src} alt={image.alt} class="w-full h-auto" loading="eager" width="800" height="600" />
+            <img src={image.src} alt={image.alt} class="w-full h-auto" loading="eager" width={image.width ?? 800} height={image.height ?? 600} />
           </div>
         )
       }

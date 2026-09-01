@@ -75,3 +75,22 @@ summary:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* --- organic image shapes (used sparingly) --- */
+.img-blob {
+  border-radius: 46% 54% 58% 42% / 48% 42% 58% 52%;
+}
+.img-offset {
+  border-radius: 1.5rem;
+  box-shadow: 14px 14px 0 0 var(--color-terra-soft);
+}
+.img-print {
+  /* candid "photo print" look: white border, slight tilt, soft shadow */
+  border: 10px solid #ffffff;
+  border-radius: 6px;
+  box-shadow: 0 10px 28px rgba(44, 58, 52, 0.16);
+  transform: rotate(-1.6deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .img-print:hover { transform: rotate(0deg); transition: transform 0.35s ease; }
+}
