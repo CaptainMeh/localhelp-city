@@ -124,7 +124,11 @@ const faqItems = [
   path="/cluj/"
   schema={[localBusinessSchema()]}
 >
-  <Hero headline="New in Cluj? You know someone here now." coreSentence={SITE.coreSentence}>
+  <Hero
+    headline="New in Cluj? You know someone here now."
+    coreSentence={SITE.coreSentence}
+    image={{ src: '/images/moving-in.webp', alt: 'Two people unpacking moving boxes in a bright apartment' }}
+  >
     <Fragment slot="lead">
       <p>
         Whatever brought you to Cluj — university, a job, a person, a plan, a fresh start — the
