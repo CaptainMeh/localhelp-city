@@ -1,72 +1,98 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Hero from '../../../components/Hero.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import CtaBlock from '../../../components/CtaBlock.astro';
 import WhatsAppButton from '../../../components/WhatsAppButton.astro';
 import { WA_MESSAGES } from '../../../lib/site';
-import { localBusinessSchema } from '../../../lib/schema';
 
-/**
- * No guides are published yet, so this page stays honest and minimal:
- * what's coming, in what order, and the faster alternative (asking us).
- * When the first real guide is live, list it here properly — no
- * "coming soon" card walls.
- */
-const upcomingTopics = [
-  'How to avoid rental scams in Cluj-Napoca',
-  'Best neighborhoods in Cluj for students',
-  'Apartment viewing checklist',
-  'Rental contracts in Romania, explained simply',
-  'How much does rent cost in Cluj?',
-  'Your first week in Cluj: the complete checklist',
-  'Public transport, SIM cards, and bank accounts',
-  'Student paperwork and residence-permit preparation',
+/** Published guides only — no placeholders, no fake dates. */
+const guides = [
+  {
+    title: 'Cluj Airport to the City Centre: Bus, Taxi, Bolt and Arrival Guide',
+    href: '/cluj/guides/cluj-airport-to-city-centre/',
+    description:
+      'Lines A1E, 5 and 8, tickets on arrival, taxis vs Bolt, late-night options, and a first-arrival checklist.',
+    tag: 'Arriving',
+  },
+  {
+    title: 'Public Transport in Cluj for Newcomers',
+    href: '/cluj/guides/public-transport-cluj/',
+    description:
+      'Buses, trolleybuses and trams: SMS tickets to 7479, validation, night lines, passes and student discounts.',
+    tag: 'Getting around',
+  },
+  {
+    title: 'How to Get a Romanian SIM Card in Cluj as a Foreigner',
+    href: '/cluj/guides/romanian-sim-card-foreigners/',
+    description:
+      'Prepaid vs contract, what ID to bring, where to buy, eSIM notes, and how to avoid paying for the wrong plan.',
+    tag: 'Setting up',
+  },
+  {
+    title: 'Opening a Bank Account in Romania as a Foreigner',
+    href: '/cluj/guides/open-bank-account-romania-foreigner/',
+    description:
+      'Typical documents, student accounts, RON vs EUR, fees to check, and why two branches can give two answers.',
+    tag: 'Setting up',
+  },
 ];
 ---
 
 <BaseLayout
-  title="Guides to Life in Cluj — Honest, Local, Free"
-  description="Free practical guides to living in Cluj-Napoca are being written now — housing first. Until yours is published, the answer is one WhatsApp message away."
+  title="Cluj Guides for Newcomers — Free & Practical"
+  brand={false}
+  description="Free practical guides to living in Cluj-Napoca: airport arrival, public transport, SIM cards, bank accounts and more — written by a local team."
   path="/cluj/guides/"
-  schema={[localBusinessSchema()]}
 >
-  <Hero headline="Guides to life in Cluj — honest, local, free.">
-    <Fragment slot="lead">
-      <p>
-        We're writing practical guides about the things people new to Cluj actually struggle
-        with — free, whether you ever pay us or not. Written by the same people who answer your
-        messages, starting with housing.
-      </p>
-      <p>
-        <strong class="text-ink">The first guides are being written now.</strong> Until yours is
-        up, the answer is one message away — and it'll be about <em>your</em> listing,
-        <em>your</em> paperwork, <em>your</em> street, not the general case.
-      </p>
-    </Fragment>
-    <Fragment slot="cta">
-      <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
-    </Fragment>
-    <Fragment slot="reassurance">A real person replies, usually within a few hours.</Fragment>
-  </Hero>
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Guides', path: '/cluj/guides/' }]} />
 
-  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
-    <h2 class="text-3xl font-semibold">What's coming first</h2>
-    <ul class="mt-6 columns-1 sm:columns-2 gap-8 space-y-2.5 text-ink-soft">
-      {upcomingTopics.map((t) => (
-        <li class="break-inside-avoid flex gap-2.5">
-          <span class="text-honey" aria-hidden="true">✍️</span>
-          <span>{t}</span>
-        </li>
-      ))}
-    </ul>
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-8">
+    <h1 class="text-4xl md:text-5xl font-semibold text-balance">Guides to life in Cluj</h1>
+    <p class="mt-4 text-lg text-ink-soft max-w-2xl">
+      Honest, practical guides to the things people new to Cluj actually struggle with — written
+      by the same local team that answers your messages, and free whether you ever pay us or not.
+    </p>
+
+    <div class="grid gap-4 mt-10 sm:grid-cols-2">
+      {
+        guides.map((g) => (
+          <a
+            href={g.href}
+            class="group bg-cream rounded-2xl p-6 border border-terra-soft/60 hover:border-terra hover:-translate-y-0.5 transition-all flex flex-col"
+          >
+            <span class="self-start text-xs font-semibold uppercase tracking-wide bg-honey-soft text-terra-deep rounded-full px-2.5 py-1">
+              {g.tag}
+            </span>
+            <h2 class="font-semibold text-xl mt-3 leading-snug group-hover:text-terra-deep">{g.title}</h2>
+            <p class="mt-2 text-ink-soft text-[0.95rem] flex-1">{g.description}</p>
+            <span class="mt-4 text-sm font-semibold text-terra-deep group-hover:underline underline-offset-4">
+              Read the guide →
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 text-ink-soft">
+      More guides are on the way — housing and neighborhoods first. For anything not covered
+      yet, the answer is one message away, and it'll be about <em>your</em> situation:
+      <a href="/cluj/housing-help/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">housing help</a>,
+      <a href="/cluj/paperwork-help/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">paperwork help</a>,
+      <a href="/cluj/student-support/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">student support</a>, or
+      <a href="/cluj/foreigner-support/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">support for newcomers</a>.
+    </p>
+
+    <div class="mt-6">
+      <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="primary" />
+    </div>
   </section>
 
   <CtaBlock
-    headline="Need one of these answers today?"
+    headline="A guide is general. Your situation isn't."
     message={WA_MESSAGES.general}
     label="Ask us one question"
   >
-    <p>A guide is general; your situation isn't. Message us the specifics.</p>
-    <Fragment slot="footnote">If the answer helped, pay what feels fair while we're new.</Fragment>
+    <p>Message us the specifics and a real local person answers — usually within a few hours.</p>
+    <Fragment slot="footnote">If the answer helped, pay what feels fair while the service is new.</Fragment>
   </CtaBlock>
 </BaseLayout>

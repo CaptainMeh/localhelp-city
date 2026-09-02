@@ -6,7 +6,8 @@ import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import TeamSection from '../../components/TeamSection.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const askUs = [
   '"Is this apartment listing real? Is this rent fair?"',
@@ -19,17 +20,20 @@ const askUs = [
 ---
 
 <BaseLayout
-  title="For Parents — Someone Local Your Child Can Ask in Cluj"
-  description="Your child is moving to Cluj-Napoca. Give them a kind, competent local person to ask about housing, paperwork, and everyday problems — with their consent, on their terms."
+  title="For Parents — Local Support for Your Child in Cluj"
+  brand={false}
+  description="Your child is moving to Cluj-Napoca. Give them a kind, competent local person to ask about housing, paperwork, and everyday problems."
   path="/cluj/for-parents/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Local support for students, for their parents', description: 'A kind, competent local contact in Cluj your child can ask about housing, paperwork, and everyday problems.', path: '/cluj/for-parents/' })]}
 >
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'For parents', path: '/cluj/for-parents/' }]} />
   <Hero
     kicker="For parents"
-    headline="Someone local, kind, and competent your child can ask in Cluj."
+    headline="For parents of students in Cluj"
     image={{ src: '/images/cafe-notebook.webp', alt: 'A quiet café table in Cluj with a notebook and a coffee by the window', width: 1000, height: 1500 }}
   >
     <Fragment slot="lead">
+      <p class="font-display text-xl text-ink">Someone local, kind, and competent your child can ask.</p>
       <p>
         Your child is moving to Cluj-Napoca — maybe from another Romanian city, maybe from
         another country. You've done the big things together: the university, the paperwork, the

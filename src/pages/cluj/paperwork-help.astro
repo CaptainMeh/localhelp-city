@@ -7,7 +7,8 @@ import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import PaymentExplainer from '../../components/PaymentExplainer.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const situations = [
   {
@@ -44,16 +45,19 @@ const situations = [
 ---
 
 <BaseLayout
-  title="Paperwork Help in Cluj — The Right Documents, the Right Office"
-  description="Romanian paperwork is confusing when you're new. We help students, internationals, and newcomers in Cluj know what documents they need, where to go, and how to prepare — so one trip is enough."
+  title="Paperwork Help in Cluj — Documents & Offices"
+  brand={false}
+  description="Romanian paperwork, decoded: which documents you need, which office handles it, and how to prepare — so one trip is enough. Local help on WhatsApp."
   path="/cluj/paperwork-help/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Paperwork help in Cluj', description: 'Orientation for Romanian paperwork: documents, offices, appointments, and preparation for students and newcomers in Cluj.', path: '/cluj/paperwork-help/' })]}
 >
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Paperwork help', path: '/cluj/paperwork-help/' }]} />
   <Hero
-    headline="Paperwork help in Cluj — the right documents, the right office, the first time."
+    headline="Paperwork help in Cluj"
     image={{ src: '/images/paperwork-desk.webp', alt: 'Filling in forms at a bright desk by the window', width: 1200, height: 800 }}
   >
     <Fragment slot="lead">
+      <p class="font-display text-xl text-ink">The right documents, the right office, the first time.</p>
       <p>
         Romanian paperwork isn't actually impossible. It just assumes you already know things
         nobody tells you: which office handles what, which documents to bring, which copies,
@@ -97,6 +101,14 @@ const situations = [
         organized so your visit goes smoothly. We are not immigration officials or legal
         representatives, we can't submit or influence applications, and official sources always
         have the final word — we'll even help you find the right page to double-check.
+      </p>
+    </PageIntro>
+
+    <PageIntro title="Common paperwork, already written up">
+      <p>
+        Opening a bank account is the paperwork moment most newcomers hit first — our
+        <a href="/cluj/guides/open-bank-account-romania-foreigner/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">practical bank account guide</a>
+        covers the documents banks typically ask for and the questions worth asking before you sign.
       </p>
     </PageIntro>
 

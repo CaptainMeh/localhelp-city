@@ -7,7 +7,8 @@ import Faq from '../../components/Faq.astro';
 import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const included = [
   'WhatsApp guidance from a real local person, in English',
@@ -56,10 +57,12 @@ const faqItems = [
 
 <BaseLayout
   title="Pricing — Ask Someone Local, Pay What Feels Fair"
-  description="We're just starting in Cluj, so early users pay what feels fair. Ask a real question, use the answer, and choose what it was worth. In-person help by the hour, agreed in advance."
+  brand={false}
+  description="Ask a real question, use the answer, and pay what feels fair from a suggested range. In-person help in Cluj is by the hour, agreed in advance."
   path="/cluj/pricing/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Local guidance in Cluj — pay what feels fair', description: 'WhatsApp answers about living in Cluj with suggested payment ranges; in-person help by the hour, agreed in advance.', path: '/cluj/pricing/' })]}
 >
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Pricing', path: '/cluj/pricing/' }]} />
   <Hero headline="Ask someone local. Pay what feels fair.">
     <Fragment slot="lead">
       <p>
@@ -102,6 +105,16 @@ const faqItems = [
         option later; for now, pay-as-it-helps covers almost everyone.
       </p>
     </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-12">
+    <p class="text-ink-soft">
+      See what this covers in practice:
+      <a href="/cluj/housing-help/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">housing help</a>,
+      <a href="/cluj/paperwork-help/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">paperwork help</a>,
+      <a href="/cluj/student-support/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">student support</a>, and
+      <a href="/cluj/foreigner-support/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">support for newcomers</a>.
+    </p>
   </section>
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">

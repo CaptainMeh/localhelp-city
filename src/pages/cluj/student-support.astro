@@ -9,7 +9,8 @@ import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import PaymentExplainer from '../../components/PaymentExplainer.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const questions = [
   '"Is this listing real, or is it a scam?"',
@@ -62,17 +63,19 @@ const helpCards = [
 ---
 
 <BaseLayout
-  title="Student Support in Cluj-Napoca — Someone Local to Ask"
-  description="Moving to Cluj for university? Ask a real local person on WhatsApp about housing, paperwork, budgets, and student life — in English. Ask a question, pay what feels fair."
+  title="Student Support in Cluj-Napoca"
+  description="Practical support for students in Cluj: housing, paperwork, budgets, and everyday student life. Ask a real local person on WhatsApp, in English."
   path="/cluj/student-support/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Student support in Cluj-Napoca', description: 'Practical local guidance for students in Cluj — housing, paperwork, budgets, everyday life — on WhatsApp.', path: '/cluj/student-support/' })]}
 >
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Student support', path: '/cluj/student-support/' }]} />
   <Hero
     kicker="For students in Cluj"
-    headline="Someone local to ask, before you sign, pay, or panic."
+    headline="Student support in Cluj-Napoca"
     image={{ src: '/images/moving-in.webp', alt: 'Two people unpacking moving boxes in a bright apartment', width: 1400, height: 766 }}
   >
     <Fragment slot="lead">
+      <p class="font-display text-xl text-ink">Someone local to ask, before you sign, pay, or panic.</p>
       <p>
         New at UBB, UMF, UTCN, or USAMV — or moving to Cluj from another Romanian city? We're a
         real local team on WhatsApp for all the small, confusing parts of student life here:
@@ -145,7 +148,16 @@ const helpCards = [
     <SectionCards cards={helpCards} columns={3} />
   </section>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-20">
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
+    <p class="text-lg text-ink-soft">
+      Worth reading in your first weeks: our guides to
+      <a href="/cluj/guides/public-transport-cluj/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">public transport and student passes</a>,
+      <a href="/cluj/guides/open-bank-account-romania-foreigner/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">opening a Romanian bank account</a>, and
+      <a href="/cluj/guides/romanian-sim-card-foreigners/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">getting a Romanian SIM</a>.
+    </p>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 mt-16">
     <PaymentExplainer full={false} />
   </section>
 

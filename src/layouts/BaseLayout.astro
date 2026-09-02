@@ -7,6 +7,10 @@ import { SITE } from '../lib/site';
 interface Props {
   /** Page <title> — include the intent phrase; brand is appended automatically unless already present. */
   title: string;
+  /** Append "| localhelp.city" (default true). Set false when the title is already long. */
+  brand?: boolean;
+  /** Open Graph type (default "website"; use "article" for guides). */
+  ogType?: string;
   /** Meta description, 140–160 chars. */
   description: string;
   /** Path of this page, e.g. "/cluj/pricing/". Used for canonical + OG URL. */
@@ -17,9 +21,9 @@ interface Props {
   schema?: object[];
 }
 
-const { title, description, path, ogImage = '/images/og-default.png', schema = [] } = Astro.props;
+const { title, brand = true, ogType = 'website', description, path, ogImage = '/images/og-default.png', schema = [] } = Astro.props;
 
-const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+const fullTitle = !brand || title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
 const canonical = new URL(path, SITE.url).href;
 const ogImageUrl = new URL(ogImage, SITE.url).href;
 ---
@@ -36,7 +40,7 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />

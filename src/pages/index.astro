@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Wordmark from '../components/Wordmark.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { WA_MESSAGES } from '../lib/site';
-import { organizationSchema } from '../lib/schema';
+import { organizationSchema, websiteSchema } from '../lib/schema';
 
 const helpChips = [
   'Housing & renting',
@@ -16,24 +15,21 @@ const helpChips = [
 ---
 
 <BaseLayout
-  title="localhelp.city — Local Help for Anyone New in Town"
-  description="Moving somewhere new? localhelp.city gives you a real local person on WhatsApp for the small, confusing parts of a new city. Live now in Cluj-Napoca, Romania."
+  title="Practical Local Help in Cluj-Napoca"
+  description="New in town? Ask someone who knows it. Practical local help with housing, paperwork, prices, and everyday problems — on WhatsApp. Available now in Cluj-Napoca."
   path="/"
-  schema={[organizationSchema()]}
+  schema={[organizationSchema(), websiteSchema()]}
 >
   <section class="bg-paper border-b border-terra-soft overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 grid gap-8 md:gap-12 md:grid-cols-[1fr_1.25fr] items-center">
       <div>
-        <h1 class="text-4xl md:text-5xl font-semibold text-balance">Every city has locals. Now you know one.</h1>
+        <h1 class="text-4xl md:text-5xl font-semibold text-balance">New in town? Ask someone who knows it.</h1>
 
-        <div class="mt-5 text-lg text-ink-soft space-y-4">
-          <p>
-            Moving somewhere new — for university, work, a season, or a fresh start? The hard part
-            is never one big thing. It's the fifty small things nobody explains.
-            <strong class="text-ink"><Wordmark /></strong> gives you a real local person to ask,
-            on WhatsApp, before you sign, pay, book, visit, decide, or panic.
-          </p>
-        </div>
+        <p class="mt-5 text-lg text-ink-soft">
+          Get practical local help with housing, paperwork, prices, services, and everyday
+          problems — from a real person, on WhatsApp.
+          <strong class="text-ink">Available now in Cluj-Napoca.</strong>
+        </p>
 
         <ul class="mt-6 flex flex-wrap gap-2" aria-label="What we help with">
           {helpChips.map((chip) => (
@@ -50,9 +46,9 @@ const helpChips = [
             href="/cluj/"
             class="inline-flex items-center gap-2 bg-terra hover:bg-terra-deep text-white font-semibold rounded-full px-7 py-3.5 transition-colors"
           >
-            📍 We're live in Cluj-Napoca →
+            Get help in Cluj →
           </a>
-          <WhatsAppButton message={WA_MESSAGES.general} label="Ask us one question" variant="secondary" />
+          <WhatsAppButton message={WA_MESSAGES.general} label="Ask someone local" variant="secondary" />
         </div>
         <p class="mt-3 text-sm text-ink-soft">
           A real person replies, usually within a few hours. While we're new, you choose what to pay.
@@ -74,8 +70,8 @@ const helpChips = [
 
   <section class="max-w-3xl mx-auto px-4 sm:px-6 py-14 text-center">
     <p class="text-lg text-ink-soft">
-      One city at a time, done properly. More cities will come when we find local teams we'd
-      trust with our own family's questions — for now, everything points to
+      This is human help from people who actually live here — not a directory, an agency, or an
+      app. One city at a time, done properly: for now, everything points to
       <a href="/cluj/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">Cluj</a>.
     </p>
   </section>

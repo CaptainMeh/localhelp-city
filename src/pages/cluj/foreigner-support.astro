@@ -13,7 +13,8 @@ import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import PaymentExplainer from '../../components/PaymentExplainer.astro';
 import TeamSection from '../../components/TeamSection.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const commonQuestions = [
   { q: '"Is this rent normal for this street?"', detail: 'and "can you look at this listing?"' },
@@ -27,12 +28,15 @@ const commonQuestions = [
 
 <BaseLayout
   title="Support for Foreigners in Cluj — Someone Local to Ask"
-  description="New to Cluj-Napoca? Message a local, English-speaking person on WhatsApp about housing, paperwork, and everyday life. Ask a question, pay what feels fair."
+  brand={false}
+  description="New to Cluj-Napoca? Message a local, English-speaking person on WhatsApp about housing, paperwork, and everyday life. Ask first, pay what feels fair."
   path="/cluj/foreigner-support/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Support for internationals and newcomers in Cluj', description: 'English-speaking local guidance for people new to Cluj — arrival, housing, paperwork, everyday life — on WhatsApp.', path: '/cluj/foreigner-support/' })]}
 >
-  <Hero kicker="For people new to Cluj" headline="New to Cluj? Get someone local to ask.">
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'New to Cluj', path: '/cluj/foreigner-support/' }]} />
+  <Hero kicker="For people new to Cluj" headline="Support for newcomers in Cluj-Napoca">
     <Fragment slot="lead">
+      <p class="font-display text-xl text-ink">New to Cluj? Get someone local to ask.</p>
       <p>
         Maybe you moved for a job. Maybe your partner did. Maybe you're here with your family, or
         with a laptop and a six-week plan, or you're starting a whole new life. The stories
@@ -68,6 +72,17 @@ const commonQuestions = [
   </section>
 
   <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
+    <PageIntro title="Arriving soon? Start with the practical guides">
+      <p>
+        We've written free guides to the first-week essentials:
+        <a href="/cluj/guides/cluj-airport-to-city-centre/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">getting from the airport to the centre</a>,
+        <a href="/cluj/guides/romanian-sim-card-foreigners/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">getting a Romanian SIM card</a>,
+        <a href="/cluj/guides/public-transport-cluj/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">using public transport</a>, and
+        <a href="/cluj/guides/open-bank-account-romania-foreigner/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">opening a bank account</a>.
+        For everything they don't cover — that's what the WhatsApp is for.
+      </p>
+    </PageIntro>
+
     <PageIntro title="Simple English is enough">
       <p>
         Write how you write. Short messages are fine. We're patient, and nobody here will ever

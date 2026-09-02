@@ -1,0 +1,109 @@
+---
+/**
+ * Layout for published guide articles: breadcrumbs, article header with
+ * last-updated date, readable prose width, ask-us CTA, related links.
+ * Emits Article JSON-LD; BreadcrumbList comes from the Breadcrumbs component.
+ */
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import { WA_MESSAGES } from '../lib/site';
+import { articleSchema } from '../lib/schema';
+
+interface Related {
+  name: string;
+  path: string;
+}
+interface Props {
+  /** SEO title (~50–60 chars, no brand — layout controls branding). */
+  seoTitle: string;
+  /** Visible H1 (can be longer/more descriptive than seoTitle). */
+  h1: string;
+  description: string;
+  path: string;
+  datePublished: string; // YYYY-MM-DD
+  dateModified?: string;
+  breadcrumbName: string;
+  /** One-line summary shown under the H1. */
+  summary: string;
+  ctaHeadline?: string;
+  ctaMessage?: string;
+  related?: Related[];
+}
+const {
+  seoTitle,
+  h1,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  breadcrumbName,
+  summary,
+  ctaHeadline = 'Rather just ask a person?',
+  ctaMessage = WA_MESSAGES.general,
+  related = [],
+} = Astro.props;
+
+const updated = dateModified ?? datePublished;
+const updatedHuman = new Date(updated + 'T00:00:00Z').toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<BaseLayout
+  title={seoTitle}
+  brand={false}
+  description={description}
+  path={path}
+  ogType="article"
+  schema={[articleSchema({ headline: h1, description, path, datePublished, dateModified })]}
+>
+  <Breadcrumbs
+    items={[
+      { name: 'Cluj', path: '/cluj/' },
+      { name: 'Guides', path: '/cluj/guides/' },
+      { name: breadcrumbName, path },
+    ]}
+  />
+
+  <article class="max-w-3xl mx-auto px-4 sm:px-6 mt-8">
+    <header>
+      <h1 class="text-3xl md:text-[2.6rem] font-semibold text-balance leading-tight">{h1}</h1>
+      <p class="mt-4 text-lg text-ink-soft">{summary}</p>
+      <p class="mt-3 text-sm text-ink-soft">
+        Last updated: <time datetime={updated}>{updatedHuman}</time> · by the localhelp.city team in Cluj
+      </p>
+    </header>
+
+    <div class="guide-prose mt-8">
+      <slot />
+    </div>
+
+    {
+      related.length > 0 && (
+        <aside class="mt-12 bg-paper border border-terra-soft rounded-2xl p-5">
+          <h2 class="font-semibold text-lg">Related reading & help</h2>
+          <ul class="mt-3 space-y-2 text-ink-soft">
+            {related.map((r) => (
+              <li>
+                <a href={r.path} class="font-medium text-terra-deep underline underline-offset-4 hover:text-terra">
+                  {r.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )
+    }
+  </article>
+
+  <CtaBlock headline={ctaHeadline} message={ctaMessage} label="Ask us one question">
+    <p>
+      Guides cover the general case — your situation is specific. Message us on WhatsApp and a
+      real local person answers, usually within a few hours. If it helped, pay what feels fair.
+    </p>
+  </CtaBlock>
+</BaseLayout>

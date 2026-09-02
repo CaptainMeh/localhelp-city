@@ -6,7 +6,8 @@ import CtaBlock from '../../components/CtaBlock.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import PaymentExplainer from '../../components/PaymentExplainer.astro';
 import { WA_MESSAGES } from '../../lib/site';
-import { localBusinessSchema } from '../../lib/schema';
+import { serviceSchema } from '../../lib/schema';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const redFlags = [
   'Payment requested before you\'ve viewed the apartment or verified the landlord — the single biggest red flag there is',
@@ -22,15 +23,18 @@ const redFlags = [
 
 <BaseLayout
   title="Housing Help in Cluj — Check Before You Sign"
-  description="Found an apartment in Cluj? Ask a local before you pay. Listing checks, red flags, fair-price guidance, viewing support. Ask a question, pay what feels fair."
+  brand={false}
+  description="Renting in Cluj? Ask a local before you pay: listing and rent checks, red flags, neighborhoods, contracts, and viewing support — on WhatsApp."
   path="/cluj/housing-help/"
-  schema={[localBusinessSchema()]}
+  schema={[serviceSchema({ name: 'Housing help in Cluj', description: 'Listing checks, rent sanity checks, neighborhood advice, viewing preparation, and contract orientation for renters in Cluj.', path: '/cluj/housing-help/' })]}
 >
+  <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Housing help', path: '/cluj/housing-help/' }]} />
   <Hero
-    headline="Housing help in Cluj — before you sign, pay, or panic."
+    headline="Housing help in Cluj"
     image={{ src: '/images/cluj-blossom.webp', alt: 'An apartment building facade in Cluj behind cherry blossoms', width: 800, height: 1066 }}
   >
     <Fragment slot="lead">
+      <p class="font-display text-xl text-ink">Before you sign, pay, or panic — check with a local.</p>
       <p>
         Housing is where people new to Cluj lose the most money, sleep, and confidence. It's also
         where a local person helps most. Whatever stage you're at — browsing listings from abroad
