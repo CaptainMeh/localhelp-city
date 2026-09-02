@@ -59,18 +59,15 @@ const sitePages = [
       <div class="col-span-2 md:col-span-1">
         <h2 class="font-semibold text-cream/95 mb-3 text-sm uppercase tracking-wide">Find us</h2>
         <address class="not-italic text-cream/75 space-y-1">
-          <p>Central {SITE.office.locality}, Romania</p>
+          <p>{SITE.office.streetAddress}</p>
+          <p>{SITE.office.locality}, Romania</p>
           <p><a href={`mailto:${SITE.email}`} class="hover:text-honey">{SITE.email}</a></p>
         </address>
-        <p class="mt-5 text-cream/65 text-sm max-w-xs">
-          We're not lawyers, doctors, or officials — and not an emergency service.
-          <strong class="text-cream/90"> In any real emergency, call 112 first.</strong>
-        </p>
       </div>
     </div>
 
     <div class="mt-10 pt-6 border-t border-cream/10 text-sm text-cream/55 flex flex-wrap gap-x-6 gap-y-2 justify-between">
-      <p>© {year} localhelp.city — made in Cluj-Napoca.</p>
+      <p>© {year} localhelp.city</p>
       <p>More cities when we find the right local teams.</p>
     </div>
   </div>

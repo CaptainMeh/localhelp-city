@@ -56,6 +56,7 @@ export function localBusinessSchema() {
     parentOrganization: { '@id': ORG_ID },
     address: {
       '@type': 'PostalAddress',
+      streetAddress: SITE.office.streetAddress,
       addressLocality: SITE.office.locality,
       addressCountry: SITE.office.country,
     },

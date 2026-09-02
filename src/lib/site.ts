@@ -10,8 +10,8 @@ export const SITE = {
   coreSentence:
     'Before you sign, pay, book, visit, decide, or panic — ask someone local.',
   whatsappNumber: '40748246019',
-  // Office address: street withheld until it's public — schema and footer say central Cluj only.
   office: {
+    streetAddress: 'Piața Muzeului nr. 2',
     locality: 'Cluj-Napoca',
     country: 'RO',
   },
