@@ -54,11 +54,24 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
     <meta name="generator" content={Astro.generator} />
     <script is:inline>document.documentElement.classList.add('js');</script>
 
-    <!-- Google tag (gtag.js) -->
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FX55G2P9PE"></script>
+    <!-- Google tag (gtag.js) with Consent Mode v2: everything denied until the visitor agrees -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'denied',
+      });
+      try {
+        if (localStorage.getItem('lh-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
+    </script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FX55G2P9PE"></script>
+    <script is:inline>
       gtag('js', new Date());
       gtag('config', 'G-FX55G2P9PE');
     </script>
@@ -98,6 +111,70 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
           { threshold: 0.1, rootMargin: '0px 0px -6% 0px' }
         );
         els.forEach(function (e) { io.observe(e); });
+      })();
+    </script>
+
+    <!-- Cookie consent banner (shown only when no choice is stored) -->
+    <div
+      id="consent-banner"
+      hidden
+      role="region"
+      aria-label="Cookie consent"
+      class="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-4 sm:max-w-sm z-50 bg-cream border border-terra-soft rounded-2xl shadow-lg p-4"
+    >
+      <p class="text-sm text-ink-soft">
+        We use one analytics cookie to see how the site is used — nothing creepy, no ads.
+        Okay with you?
+      </p>
+      <div class="mt-3 flex gap-2">
+        <button
+          id="consent-accept"
+          class="btn-fx bg-terra hover:bg-terra-deep text-white text-sm font-semibold rounded-full px-4 py-2"
+        >
+          Okay
+        </button>
+        <button
+          id="consent-decline"
+          class="btn-fx border border-terra text-terra-deep hover:bg-terra-soft text-sm font-semibold rounded-full px-4 py-2"
+        >
+          No thanks
+        </button>
+      </div>
+    </div>
+
+    <script is:inline>
+      // Consent banner logic + GA event tracking (WhatsApp / email clicks).
+      (function () {
+        var banner = document.getElementById('consent-banner');
+        var stored = null;
+        try { stored = localStorage.getItem('lh-consent'); } catch (e) {}
+        if (banner && !stored) banner.hidden = false;
+        function choose(value) {
+          try { localStorage.setItem('lh-consent', value); } catch (e) {}
+          if (value === 'granted' && typeof gtag === 'function') {
+            gtag('consent', 'update', { analytics_storage: 'granted' });
+          }
+          if (banner) banner.hidden = true;
+        }
+        var accept = document.getElementById('consent-accept');
+        var decline = document.getElementById('consent-decline');
+        if (accept) accept.addEventListener('click', function () { choose('granted'); });
+        if (decline) decline.addEventListener('click', function () { choose('denied'); });
+
+        // Delegated click tracking: every WhatsApp CTA and email link.
+        document.addEventListener('click', function (ev) {
+          var a = ev.target && ev.target.closest ? ev.target.closest('a[href]') : null;
+          if (!a || typeof gtag !== 'function') return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('wa.me') !== -1) {
+            gtag('event', 'whatsapp_click', {
+              link_label: (a.textContent || '').trim().slice(0, 60),
+              page_path: location.pathname,
+            });
+          } else if (href.indexOf('mailto:') === 0) {
+            gtag('event', 'email_click', { page_path: location.pathname });
+          }
+        });
       })();
     </script>
   </body>
