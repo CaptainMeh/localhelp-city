@@ -1,6 +1,7 @@
 ---
 import { SITE, WA_MESSAGES } from '../lib/site';
 import WhatsAppButton from './WhatsAppButton.astro';
+import Wordmark from './Wordmark.astro';
 
 const year = new Date().getFullYear();
 
@@ -26,9 +27,7 @@ const sitePages = [
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
     <div class="grid gap-8 md:gap-10 grid-cols-2 md:grid-cols-[2fr_1fr_1fr_1.4fr]">
       <div class="col-span-2 md:col-span-1">
-        <span class="font-display font-semibold text-xl">
-          <span class="text-cream">localhelp</span><span class="text-honey">.city</span>
-        </span>
+        <Wordmark variant="footer" />
         <p class="mt-3 text-cream/75 max-w-xs">
           Someone local when Cluj gets confusing. Before you sign, pay, book, visit, decide,
           or panic — ask someone local.
