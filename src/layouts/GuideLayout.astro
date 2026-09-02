@@ -15,7 +15,7 @@ interface Related {
   path: string;
 }
 interface Props {
-  /** SEO title (~50–60 chars, no brand — layout controls branding). */
+  /** SEO title (~50–60 chars, no brand; layout controls branding). */
   seoTitle: string;
   /** Visible H1 (can be longer/more descriptive than seoTitle). */
   h1: string;
@@ -102,7 +102,7 @@ const updatedHuman = new Date(updated + 'T00:00:00Z').toLocaleDateString('en-GB'
 
   <CtaBlock headline={ctaHeadline} message={ctaMessage} label="Ask us one question">
     <p>
-      Guides cover the general case — your situation is specific. Message us on WhatsApp and a
+      Guides cover the general case, your situation is specific. Message us on WhatsApp and a
       real local person answers, usually within a few hours. If it helped, pay what feels fair.
     </p>
   </CtaBlock>

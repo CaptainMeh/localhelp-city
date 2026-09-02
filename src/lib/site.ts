@@ -15,7 +15,7 @@ export const SITE = {
     locality: 'Cluj-Napoca',
     country: 'RO',
   },
-  email: 'hello@localhelp.city', // placeholder — confirm before launch
+  email: 'hello@localhelp.city', // placeholder, confirm before launch
 };
 
 /** Pre-filled WhatsApp messages, one per context. */
@@ -37,13 +37,13 @@ export function waLink(message: string): string {
   return `https://wa.me/${SITE.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
-/** Gentle reference anchors — guidance, never tiers or packages. */
+/** Gentle reference anchors: guidance, never tiers or packages. */
 export const ANCHORS = [
   { label: 'A small question', detail: '“which bus app?”, “is this pharmacy open Sundays?”', range: 'usually €3–5' },
   { label: 'A rental listing or rent sanity check', detail: '“is this real? is this price fair?”', range: 'usually €5–15' },
   { label: 'Arrival planning', detail: 'what to sort before and after you land, in order, for your situation', range: 'usually €10–25' },
-  { label: 'Something more complex', detail: 'we agree on it together before starting — never a surprise number after the fact', range: 'agreed in advance' },
-  { label: 'In-person help', detail: 'viewings, offices, meetings — subject to availability', range: 'by the hour, agreed in advance' },
+  { label: 'Something more complex', detail: 'we agree on it together before starting, never a surprise number after the fact', range: 'agreed in advance' },
+  { label: 'In-person help', detail: 'viewings, offices, meetings, subject to availability', range: 'by the hour, agreed in advance' },
 ];
 
 /** Main navigation. */

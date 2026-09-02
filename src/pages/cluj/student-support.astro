@@ -20,7 +20,7 @@ const questions = [
   '"What does this clause in my contract mean?"',
   '"Where do I go for this stamp / paper / registration?"',
   '"Where\'s a dentist who speaks English?"',
-  '"My landlord says X — is that normal here?"',
+  '"My landlord says X. Is that normal here?"',
   '"I lost my ID. What now?"',
 ];
 
@@ -47,12 +47,12 @@ const helpCards = [
   {
     icon: '🩺',
     title: 'Health & wellbeing basics',
-    body: 'Finding a family doctor, dentist, pharmacy, or therapist — including ones who speak English. (We help you find care; we never give medical advice.)',
+    body: 'Finding a family doctor, dentist, pharmacy, or therapist, including ones who speak English. (We help you find care; we never give medical advice.)',
   },
   {
     icon: '🚌',
     title: 'Getting around & daily life',
-    body: 'Public transport, the apps students actually use, gyms, salons, repair shops, barbers, where to buy what — the small daily decisions that add up.',
+    body: 'Public transport, the apps students actually use, gyms, salons, repair shops, barbers, where to buy what, the small daily decisions that add up.',
   },
   {
     icon: '😰',
@@ -66,7 +66,7 @@ const helpCards = [
   title="Student Support in Cluj-Napoca"
   description="Practical support for students in Cluj: housing, paperwork, budgets, and everyday student life. Ask a real local person on WhatsApp, in English."
   path="/cluj/student-support/"
-  schema={[serviceSchema({ name: 'Student support in Cluj-Napoca', description: 'Practical local guidance for students in Cluj — housing, paperwork, budgets, everyday life — on WhatsApp.', path: '/cluj/student-support/' })]}
+  schema={[serviceSchema({ name: 'Student support in Cluj-Napoca', description: 'Practical local guidance for students in Cluj: housing, paperwork, budgets, everyday life, on WhatsApp.', path: '/cluj/student-support/' })]}
 >
   <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'Student support', path: '/cluj/student-support/' }]} />
   <Hero
@@ -77,12 +77,12 @@ const helpCards = [
     <Fragment slot="lead">
       <p class="font-display text-xl text-ink">Someone local to ask, before you sign, pay, or panic.</p>
       <p>
-        New at UBB, UMF, UTCN, or USAMV — or moving to Cluj from another Romanian city? We're a
+        New at UBB, UMF, UTCN, or USAMV, or moving to Cluj from another Romanian city? We're a
         real local team on WhatsApp for all the small, confusing parts of student life here:
         housing, paperwork, neighborhoods, everyday decisions.
       </p>
       <p>
-        We're just starting in Cluj, so early users pay what feels fair — ask us a real question,
+        We're just starting in Cluj, so early users pay what feels fair. Ask us a real question,
         use the answer, and if it helped, pay what you think it was worth.
       </p>
     </Fragment>
@@ -101,7 +101,7 @@ const helpCards = [
     <PageIntro title="Moving to Cluj isn't one big problem. It's fifty small ones.">
       <p>
         Nobody warns you about the small stuff. The apartment listing that looks great but feels
-        slightly off. The deposit that might be normal — or might not. The office that needed a
+        slightly off. The deposit that might be normal, or might not. The office that needed a
         document nobody mentioned. The neighborhood names that mean nothing to you yet. Each
         thing is small. Together, in a new city, in a language you may not speak, they're
         exhausting.
@@ -120,22 +120,22 @@ const helpCards = [
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
     <div class="grid gap-10 md:grid-cols-2 items-start">
-      <PageIntro title="Ask someone local. That's the whole idea.">
+      <PageIntro title="Ask someone local. It really is that simple.">
         <p>
-          Every city runs on local knowledge — the stuff people who grew up here just know. When
+          Every city runs on local knowledge, the stuff people who grew up here just know. When
           you're new, you don't have it yet. We do. So instead of guessing, googling, or hoping a
           Facebook group is right, you message us.
         </p>
         <p>
           A real person who knows Cluj tells you what's normal, what to check, and what they'd do
-          next. And if a situation is easier with a local physically there — a viewing, an office —
+          next. And if a situation is easier with a local physically there, a viewing, an office,
           we can often come along, by the hour, agreed in advance.
         </p>
       </PageIntro>
       <div class="md:pt-14">
         <ChatExample
           question="Hi! Found a studio in Mănăștur, 320€, landlord wants 2 months deposit + first month before viewing. Normal?"
-          answer="Paying anything before a viewing is a red flag here — please don't send money yet. Two months' deposit happens in Cluj but it's on the higher side. Send us the listing? We'll take a look and tell you what we'd check at the viewing."
+          answer="Paying anything before a viewing is a red flag here, please don't send money yet. Two months' deposit happens in Cluj but it's on the higher side. Send us the listing? We'll take a look and tell you what we'd check at the viewing."
         />
       </div>
     </div>
@@ -143,7 +143,7 @@ const helpCards = [
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-20">
     <PageIntro title="The everyday stuff of student life in Cluj">
-      <p>Not sure your question fits a category? Ask anyway. If we can't help, we'll say so honestly — and point you toward someone who can.</p>
+      <p>Not sure your question fits a category? Ask anyway. If we can't help, we'll say so honestly, and point you toward someone who can.</p>
     </PageIntro>
     <SectionCards cards={helpCards} columns={3} />
   </section>
@@ -165,7 +165,7 @@ const helpCards = [
     <PageIntro title="Your parents will like this too">
       <p>
         If your parents worry (they do), there's a page written for them: what we are, what we're
-        not, and how we respect your independence — we work with you directly and in confidence,
+        not, and how we respect your independence, we work with you directly and in confidence,
         not as anyone's eyes in Cluj.
       </p>
       <p>

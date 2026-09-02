@@ -1,7 +1,7 @@
 ---
 /**
  * Card for a guide article. While guides are being written, cards can render
- * as "on its way" without a link — set comingSoon.
+ * as "on its way" without a link: set comingSoon.
  */
 interface Props {
   title: string;
@@ -24,7 +24,7 @@ const { title, description, href, comingSoon = false } = Astro.props;
   {
     comingSoon ? (
       <p class="mt-4 text-sm font-semibold text-honey-soft bg-ink/90 rounded-full px-3 py-1 self-start">
-        On its way — ask us directly meanwhile
+        On its way. Ask us directly meanwhile
       </p>
     ) : (
       href && (

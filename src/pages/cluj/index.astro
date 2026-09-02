@@ -17,13 +17,13 @@ const whoCards = [
   {
     icon: '🎓',
     title: 'Students',
-    body: 'New at UBB, UMF, UTCN, USAMV — or moving from another Romanian city. Housing, paperwork, budgets, first semester.',
+    body: 'New at UBB, UMF, UTCN, USAMV, or moving from another Romanian city. Housing, paperwork, budgets, first semester.',
     href: '/cluj/student-support/',
     linkLabel: 'Student support',
   },
   {
     icon: '🌍',
-    title: 'New to Cluj — from abroad or anywhere',
+    title: 'New to Cluj, from abroad or anywhere',
     body: 'Here with a job offer, a family, a laptop for a season, or a whole new life. Different stories, same fifty questions.',
     href: '/cluj/foreigner-support/',
     linkLabel: 'Someone local to ask',
@@ -40,7 +40,7 @@ const whoCards = [
 const faqItems = [
   {
     q: 'How does "pay what feels fair" actually work?',
-    a: "Exactly like it sounds. You ask, we answer properly, and afterwards we send a payment link with a suggested range for that kind of help. You choose the amount. The service is new — this is how we'd rather earn trust than with a paywall.",
+    a: "Exactly like it sounds. You ask, we answer properly, and afterwards we send a payment link with a suggested range for that kind of help. You choose the amount. The service is new, and this is how we'd rather earn trust than with a paywall.",
   },
   {
     q: 'Do I have to pay before asking?',
@@ -48,11 +48,11 @@ const faqItems = [
   },
   {
     q: 'Can you find me an apartment?',
-    a: "Not quite — we're not an agency and we don't have listings. What we do is make you good at finding one: we review listings you find, flag scams, tell you if prices are fair, help you choose a neighborhood, prep you for viewings, and help you understand the contract before you sign.",
+    a: "Not quite, we're not an agency and we don't have listings. What we do is make you good at finding one: we review listings you find, flag scams, tell you if prices are fair, help you choose a neighborhood, prep you for viewings, and help you understand the contract before you sign.",
   },
   {
     q: 'Is this only for students?',
-    a: "Students are where we started and they keep a special place here — but we're for anyone new in Cluj: internationals, newcomers, and everyone in between. Same warm deal for everyone.",
+    a: "Students are where we started and they keep a special place here, but we're for anyone new in Cluj: internationals, newcomers, and everyone in between. Same warm deal for everyone.",
   },
   {
     q: 'When is a price agreed in advance?',
@@ -60,14 +60,14 @@ const faqItems = [
   },
   {
     q: 'How quickly do you reply?',
-    a: "During the day, usually within a few hours — often faster. We're a small team that prioritizes time-sensitive things, so tell us when something is urgent-ish. We're not an emergency line: in any real emergency, call 112 first.",
+    a: "During the day, usually within a few hours, often faster. We're a small team that prioritizes time-sensitive things, so tell us when something is urgent-ish. We're not an emergency line: in any real emergency, call 112 first.",
   },
 ];
 ---
 
 <BaseLayout
   title="New in Cluj? Someone Local to Ask"
-  description="Ask a real local person about living in Cluj-Napoca — housing, paperwork, prices, arrival, everyday problems. On WhatsApp, in English, within hours."
+  description="Ask a real local person about living in Cluj-Napoca: housing, paperwork, prices, arrival, everyday problems. On WhatsApp, in English, within hours."
   path="/cluj/"
   schema={[localBusinessSchema()]}
 >
@@ -78,7 +78,7 @@ const faqItems = [
   >
     <Fragment slot="lead">
       <p>
-        Ask a real local person your questions about living in Cluj — on WhatsApp, in English.
+        Ask a real local person your questions about living in Cluj, on WhatsApp, in English.
         <strong class="text-ink">Housing, paperwork, prices, arrival, everyday problems.</strong>
       </p>
       <p class="font-display text-ink border-l-4 border-honey pl-4">
@@ -100,14 +100,14 @@ const faqItems = [
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-12 md:mt-16 scroll-mt-24" id="services">
     <PageIntro title="What you can ask us about">
-      <p>If it's part of living in Cluj, it's probably in here. If it isn't — ask anyway.</p>
+      <p>If it's part of living in Cluj, it's probably in here. If it isn't, ask anyway.</p>
     </PageIntro>
     <ServicesGrid />
   </section>
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-14 md:mt-20">
     <PageIntro title="Who it's for">
-      <p>One kind of help, three front doors. Nobody fits boxes perfectly — just message us.</p>
+      <p>One kind of help, three front doors. Nobody fits boxes perfectly. Just message us.</p>
     </PageIntro>
     <SectionCards cards={whoCards} columns={3} />
   </section>
@@ -120,15 +120,15 @@ const faqItems = [
           <ol class="mt-6 space-y-4 text-lg text-ink-soft">
             <li class="flex gap-3.5">
               <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">1</span>
-              <span><strong class="text-ink">Message us on WhatsApp</strong> — any everyday question about living in Cluj.</span>
+              <span><strong class="text-ink">Message us on WhatsApp</strong> with any everyday question about living in Cluj.</span>
             </li>
             <li class="flex gap-3.5">
               <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">2</span>
-              <span><strong class="text-ink">A local answers, properly</strong> — practical advice from a person who lives here, usually within a few hours.</span>
+              <span><strong class="text-ink">A local answers, properly</strong>: practical advice from a person who lives here, usually within a few hours.</span>
             </li>
             <li class="flex gap-3.5">
               <span class="shrink-0 w-8 h-8 rounded-full bg-honey-soft text-terra-deep font-display font-semibold flex items-center justify-center" aria-hidden="true">3</span>
-              <span><strong class="text-ink">If it helped, pay what feels fair</strong> — we send a payment link with a suggested range (a small question is usually €3–5) and you choose. Bigger jobs and in-person help are agreed in advance.</span>
+              <span><strong class="text-ink">If it helped, pay what feels fair</strong>, we send a payment link with a suggested range (a small question is usually €3–5) and you choose. Bigger jobs and in-person help are agreed in advance.</span>
             </li>
           </ol>
           <p class="mt-6">
@@ -137,7 +137,7 @@ const faqItems = [
         </div>
         <ChatExample
           question="Hi! Found a studio in Mănăștur, 320€, landlord wants two months' deposit + first month before viewing. Normal?"
-          answer="Paying anything before a viewing is a red flag here — please don't send money yet. Two months' deposit happens in Cluj but it's on the higher side. Send us the listing? We'll tell you what we'd check."
+          answer="Paying anything before a viewing is a red flag here, please don't send money yet. Two months' deposit happens in Cluj but it's on the higher side. Send us the listing? We'll tell you what we'd check."
         />
       </div>
     </div>
@@ -160,13 +160,13 @@ const faqItems = [
     <div class="border-l-4 border-terra-soft pl-5 text-ink-soft space-y-3" data-reveal>
       <p>
         <strong class="text-ink">Plainly, what we're not:</strong> lawyers, doctors, police,
-        university staff, or immigration officials — when a question needs one of those, we say
+        university staff, or immigration officials. When a question needs one of those, we say
         so and help you find the right one. Not an emergency service either:
         <strong class="text-ink">in any real emergency, call 112 first.</strong>
       </p>
       <p>
         We don't promise to solve everything. We promise you'll always have someone local, kind,
-        and competent to ask — and you'll always leave knowing what to do next.
+        and competent to ask, and you'll always leave knowing what to do next.
         <a href="/how-it-works/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">More on how we work →</a>
       </p>
     </div>

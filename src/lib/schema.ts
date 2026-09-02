@@ -23,7 +23,7 @@ export function organizationSchema() {
     name: SITE.name,
     url: SITE.url,
     description:
-      'Practical local help for people new in town — a real local person on WhatsApp. Available now in Cluj-Napoca, Romania.',
+      'Practical local help for people new in town: a real local person on WhatsApp. Available now in Cluj-Napoca, Romania.',
     email: SITE.email,
     logo: `${SITE.url}/favicon.svg`,
   };
@@ -41,7 +41,7 @@ export function websiteSchema() {
   };
 }
 
-/** Full LocalBusiness — use ONLY on /cluj/. Other pages reference BUSINESS_ID. */
+/** Full LocalBusiness. Use ONLY on /cluj/. Other pages reference BUSINESS_ID. */
 export function localBusinessSchema() {
   return {
     '@context': 'https://schema.org',
@@ -50,7 +50,7 @@ export function localBusinessSchema() {
     name: SITE.name,
     url: `${SITE.url}/cluj/`,
     description:
-      'Ask a real local person about living in Cluj-Napoca — housing, paperwork, prices, arrival, and everyday problems. On WhatsApp, in English.',
+      'Ask a real local person about living in Cluj-Napoca: housing, paperwork, prices, arrival, and everyday problems. On WhatsApp, in English.',
     email: SITE.email,
     priceRange: '€',
     parentOrganization: { '@id': ORG_ID },

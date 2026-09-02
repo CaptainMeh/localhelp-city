@@ -21,7 +21,7 @@ const { full = true } = Astro.props;
     suggested range, and you choose what feels fair.
   </p>
   <p class="mt-2 text-ink-soft max-w-2xl">
-    No awkward follow-ups, no pressure — just a fair suggestion after we help.
+    No awkward follow-ups, no pressure. Just a fair suggestion after we help.
   </p>
 
   {
@@ -34,7 +34,7 @@ const { full = true } = Astro.props;
           {ANCHORS.map((a) => (
             <li class="flex flex-wrap items-baseline gap-x-2 border-b border-terra-soft/70 pb-2.5 last:border-0">
               <span class="font-medium">{a.label}</span>
-              <span class="text-ink-soft text-sm">— {a.detail}</span>
+              <span class="text-ink-soft text-sm">· {a.detail}</span>
               <span class="ml-auto font-semibold text-terra-deep whitespace-nowrap">{a.range}</span>
             </li>
           ))}

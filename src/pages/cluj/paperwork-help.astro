@@ -24,7 +24,7 @@ const situations = [
   {
     icon: '🪪',
     title: 'Residence-permit preparation',
-    body: 'Understanding the process, the documents typically requested, and the order of steps — with official sources always having the final word.',
+    body: 'Understanding the process, the documents typically requested, and the order of steps, with official sources always having the final word.',
   },
   {
     icon: '🏦',
@@ -34,7 +34,7 @@ const situations = [
   {
     icon: '📄',
     title: 'Lost documents',
-    body: 'Lost ID or passport? We help you figure out the steps — police report, embassy or reissue, temporary documents — calmly and in order.',
+    body: 'Lost ID or passport? We help you figure out the steps (police report, embassy or reissue, temporary documents) calmly and in order.',
   },
   {
     icon: '✉️',
@@ -45,9 +45,9 @@ const situations = [
 ---
 
 <BaseLayout
-  title="Paperwork Help in Cluj — Documents & Offices"
+  title="Paperwork Help in Cluj: Documents & Offices"
   brand={false}
-  description="Romanian paperwork, decoded: which documents you need, which office handles it, and how to prepare — so one trip is enough. Local help on WhatsApp."
+  description="Romanian paperwork, decoded: which documents you need, which office handles it, and how to prepare, so one trip is enough. Local help on WhatsApp."
   path="/cluj/paperwork-help/"
   schema={[serviceSchema({ name: 'Paperwork help in Cluj', description: 'Orientation for Romanian paperwork: documents, offices, appointments, and preparation for students and newcomers in Cluj.', path: '/cluj/paperwork-help/' })]}
 >
@@ -72,7 +72,7 @@ const situations = [
       <WhatsAppButton message={WA_MESSAGES.paperwork} label="Ask before you queue" variant="primary" />
       <WhatsAppButton message={WA_MESSAGES.paperwork} label="Get local guidance" variant="secondary" />
     </Fragment>
-    <Fragment slot="reassurance">Standing in the wrong queue is a rite of passage — but it doesn't have to be yours.</Fragment>
+    <Fragment slot="reassurance">Standing in the wrong queue is a rite of passage, but it doesn't have to be yours.</Fragment>
   </Hero>
 
   <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
@@ -80,7 +80,7 @@ const situations = [
       <p>
         Which documents you need for your specific situation. Which office handles it, and where
         that office actually is. Whether you need an appointment and how to get one. What to
-        prepare — copies, translations, photos — so you're not sent home for a missing paper. And
+        prepare: copies, translations, photos, so you're not sent home for a missing paper. And
         the order to do things in, because in Romanian bureaucracy, order matters.
       </p>
     </PageIntro>
@@ -88,25 +88,25 @@ const situations = [
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 mt-16">
     <PageIntro title="Common paperwork situations">
-      <p>The ones we see most — but ask about yours even if it's not here.</p>
+      <p>The ones we see most, but ask about yours even if it's not here.</p>
     </PageIntro>
     <SectionCards cards={situations} columns={3} />
   </section>
 
   <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16 space-y-14">
-    <PageIntro title="Residence permits: how we help — and where officials take over">
+    <PageIntro title="Residence permits: how we help, and where officials take over">
       <p>
         We help you <strong class="text-ink">prepare</strong>: understanding the process, knowing
         which documents are typically needed, figuring out where to go and when, and getting
         organized so your visit goes smoothly. We are not immigration officials or legal
         representatives, we can't submit or influence applications, and official sources always
-        have the final word — we'll even help you find the right page to double-check.
+        have the final word, we'll even help you find the right page to double-check.
       </p>
     </PageIntro>
 
     <PageIntro title="Common paperwork, already written up">
       <p>
-        Opening a bank account is the paperwork moment most newcomers hit first — our
+        Opening a bank account is the paperwork moment most newcomers hit first, our
         <a href="/cluj/guides/open-bank-account-romania-foreigner/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">practical bank account guide</a>
         covers the documents banks typically ask for and the questions worth asking before you sign.
       </p>
@@ -114,7 +114,7 @@ const situations = [
 
     <PageIntro title="Want someone to come with you?">
       <p>
-        Some office visits are simply easier with a local along — for the language, the counters,
+        Some office visits are simply easier with a local along, for the language, the counters,
         and the calm. That's our in-person help: by the hour, price agreed in advance, subject to
         availability.
       </p>
@@ -129,7 +129,7 @@ const situations = [
   </section>
 
   <CtaBlock
-    headline="One trip instead of three. That's the goal."
+    headline="One trip to the office instead of three."
     message={WA_MESSAGES.paperwork}
     label="Ask before you queue"
   >

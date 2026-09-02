@@ -10,7 +10,7 @@ import { serviceSchema } from '../../lib/schema';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const redFlags = [
-  'Payment requested before you\'ve viewed the apartment or verified the landlord — the single biggest red flag there is',
+  'Payment requested before you\'ve viewed the apartment or verified the landlord, the single biggest red flag there is',
   'Prices clearly below the market for the area (bait listings)',
   'A "landlord" who is abroad and will "send the keys by courier"',
   'Pressure: "three other people want it, decide in an hour"',
@@ -22,9 +22,9 @@ const redFlags = [
 ---
 
 <BaseLayout
-  title="Housing Help in Cluj — Check Before You Sign"
+  title="Housing Help in Cluj: Check Before You Sign"
   brand={false}
-  description="Renting in Cluj? Ask a local before you pay: listing and rent checks, red flags, neighborhoods, contracts, and viewing support — on WhatsApp."
+  description="Renting in Cluj? Ask a local before you pay: listing and rent checks, red flags, neighborhoods, contracts, and viewing support, on WhatsApp."
   path="/cluj/housing-help/"
   schema={[serviceSchema({ name: 'Housing help in Cluj', description: 'Listing checks, rent sanity checks, neighborhood advice, viewing preparation, and contract orientation for renters in Cluj.', path: '/cluj/housing-help/' })]}
 >
@@ -37,15 +37,15 @@ const redFlags = [
       <p class="font-display text-xl text-ink">Before you sign, pay, or panic — check with a local.</p>
       <p>
         Housing is where people new to Cluj lose the most money, sleep, and confidence. It's also
-        where a local person helps most. Whatever stage you're at — browsing listings from abroad
-        or holding a pen over a contract — talk to us first.
+        where a local person helps most. Whatever stage you're at, browsing listings from abroad
+        or holding a pen over a contract, talk to us first.
       </p>
     </Fragment>
     <Fragment slot="cta">
       <WhatsAppButton message={WA_MESSAGES.housing} label="Send us the listing" variant="primary" />
       <WhatsAppButton message={WA_MESSAGES.housing} label="Get help before you sign" variant="secondary" />
     </Fragment>
-    <Fragment slot="reassurance">A rental sanity check is usually €5–15 — you choose what feels fair after we help.</Fragment>
+    <Fragment slot="reassurance">A rental sanity check is usually €5–15, you choose what feels fair after we help.</Fragment>
   </Hero>
 
   <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-16">
@@ -58,7 +58,7 @@ const redFlags = [
       </p>
       <p class="italic">
         "Is this too good to be true?" is a question we answer almost every day. Sometimes the
-        answer is "actually, it's fine — here's why." That one feels good to send.
+        answer is "actually, it's fine, and here's why." That one feels good to send.
       </p>
     </PageIntro>
   </section>
@@ -76,7 +76,7 @@ const redFlags = [
       ))}
     </ul>
     <p class="mt-5 text-ink-soft">
-      Ask us before money moves — a second pair of local eyes on all of this is exactly what
+      Ask us before money moves, a second pair of local eyes on all of this is exactly what
       we're for.
     </p>
   </section>
@@ -86,7 +86,7 @@ const redFlags = [
       <p>
         Zorilor or Gheorgheni? Mănăștur's prices or Centru's convenience? The honest answer
         depends on your university or workplace, your budget, your schedule, and how you like to
-        live. Tell us those four things and we'll give you a real local take — including the
+        live. Tell us those four things and we'll give you a real local take, including the
         trade-offs listing sites won't mention, like commute reality in winter or which streets
         are noisy on weekends.
       </p>
@@ -97,11 +97,11 @@ const redFlags = [
         Before any viewing, we'll prep you: what to check (damp, heating, water pressure,
         windows, appliances), what to ask (bills, deposit terms, house rules, who fixes what),
         and what to notice in how the landlord answers. You'll walk in looking like someone who
-        can't be fooled — which, by itself, changes how you're treated.
+        can't be fooled, which by itself changes how you're treated.
       </p>
     </PageIntro>
 
-    <PageIntro title="Contracts, deposits, and bills — what's normal here">
+    <PageIntro title="Contracts, deposits, and bills: what's normal here">
       <p>
         Romanian rental contracts follow patterns. We help you understand what the clauses in
         front of you actually mean in practice, whether the deposit and notice terms are within
@@ -110,7 +110,7 @@ const redFlags = [
         agreeing to.
       </p>
       <p>
-        <strong class="text-ink">Plainly:</strong> we're not lawyers and this isn't legal advice —
+        <strong class="text-ink">Plainly:</strong> we're not lawyers and this isn't legal advice;
         it's local orientation. If your situation needs a lawyer, we'll tell you so and help you
         find one.
       </p>
@@ -118,25 +118,25 @@ const redFlags = [
 
     <PageIntro title="Staying months, not years?">
       <p>
-        Short-term listings have <em>more</em> scams, not fewer — send us those too.
+        Short-term listings have <em>more</em> scams, not fewer. Send us those too.
       </p>
     </PageIntro>
 
     <PageIntro title="Want a local at the viewing with you?">
       <p>
-        Some people prefer one of us physically present at a viewing or a landlord meeting — a
+        Some people prefer one of us physically present at a viewing or a landlord meeting, a
         local voice, a second opinion on the spot, and a different dynamic in the room. That's
         our in-person help: by the hour, price agreed in advance, subject to availability. Ask us
         anytime.
       </p>
     </PageIntro>
 
-    <PageIntro title="What we honestly can't promise">
+    <PageIntro title="What we can't promise">
       <p>
-        We don't find apartments for you or hold an inventory of rentals — we make you
+        We don't find apartments for you or hold an inventory of rentals, we make you
         dramatically better at searching, judging, and deciding. We can't guarantee you'll never
-        be scammed or that a landlord will behave — we can make the odds much, much better. And
-        we can't change a bad contract after it's signed — which is exactly why the time to
+        be scammed or that a landlord will behave, we can make the odds much, much better. And
+        we can't change a bad contract after it's signed, which is exactly why the time to
         message us is <strong class="text-ink">before</strong>.
       </p>
     </PageIntro>

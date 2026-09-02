@@ -2,7 +2,7 @@
 /**
  * SEO note: the slug /cluj/foreigner-support/ deliberately keeps the search term
  * ("help for foreigners cluj", "living in cluj as a foreigner"). The visible page
- * never labels its reader — the word appears in title tag and metadata only.
+ * never labels its reader, the word appears in title tag and metadata only.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
@@ -22,16 +22,16 @@ const commonQuestions = [
   { q: '"What documents do I need, and which office?"', detail: "with honest pointers to officials when it's their job, not ours" },
   { q: '"Where\'s an English-speaking doctor / dentist / kindergarten / accountant?"', detail: '' },
   { q: '"Is this the real price or the newcomer price?"', detail: '' },
-  { q: '"My landlord says X — is that normal here?"', detail: '' },
+  { q: '"My landlord says X. Is that normal here?"', detail: '' },
 ];
 ---
 
 <BaseLayout
-  title="Support for Foreigners in Cluj — Someone Local to Ask"
+  title="Support for Foreigners in Cluj: Someone Local to Ask"
   brand={false}
   description="New to Cluj-Napoca? Message a local, English-speaking person on WhatsApp about housing, paperwork, and everyday life. Ask first, pay what feels fair."
   path="/cluj/foreigner-support/"
-  schema={[serviceSchema({ name: 'Support for internationals and newcomers in Cluj', description: 'English-speaking local guidance for people new to Cluj — arrival, housing, paperwork, everyday life — on WhatsApp.', path: '/cluj/foreigner-support/' })]}
+  schema={[serviceSchema({ name: 'Support for internationals and newcomers in Cluj', description: 'English-speaking local guidance for people new to Cluj: arrival, housing, paperwork, everyday life, on WhatsApp.', path: '/cluj/foreigner-support/' })]}
 >
   <Breadcrumbs items={[{ name: 'Cluj', path: '/cluj/' }, { name: 'New to Cluj', path: '/cluj/foreigner-support/' }]} />
   <Hero kicker="For people new to Cluj" headline="Support for newcomers in Cluj-Napoca">
@@ -44,7 +44,7 @@ const commonQuestions = [
         decision takes three times the energy it should.
       </p>
       <p>
-        You can message someone who knows Cluj — a small local team, on WhatsApp, in English —
+        You can message someone who knows Cluj, a small local team, on WhatsApp, in English,
         before you sign, pay, book, visit, decide, or panic. We're just starting here, so early
         users pay what feels fair: ask a real question, use the answer, and if it helped, pay
         what you think it was worth.
@@ -65,7 +65,7 @@ const commonQuestions = [
       {commonQuestions.map((item) => (
         <li class="bg-cream border border-terra-soft rounded-2xl rounded-bl-sm px-4 py-3">
           <span class="text-ink font-medium">{item.q}</span>
-          {item.detail && <span class="text-ink-soft text-[0.95rem]"> — {item.detail}</span>}
+          {item.detail && <span class="text-ink-soft text-[0.95rem]"> · {item.detail}</span>}
         </li>
       ))}
     </ul>
@@ -79,7 +79,7 @@ const commonQuestions = [
         <a href="/cluj/guides/romanian-sim-card-foreigners/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">getting a Romanian SIM card</a>,
         <a href="/cluj/guides/public-transport-cluj/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">using public transport</a>, and
         <a href="/cluj/guides/open-bank-account-romania-foreigner/" class="font-semibold text-terra-deep underline underline-offset-4 hover:text-terra">opening a bank account</a>.
-        For everything they don't cover — that's what the WhatsApp is for.
+        For everything they don't cover, that's what the WhatsApp is for.
       </p>
     </PageIntro>
 
@@ -100,7 +100,7 @@ const commonQuestions = [
     <PageIntro title="The honest line, extra clear">
       <p>
         We're not lawyers or immigration officials. For visas, permits, or anything about your
-        legal status, we'll point you to official sources and qualified people — and help with
+        legal status, we'll point you to official sources and qualified people, and help with
         the everyday parts around it: understanding a letter, finding the office, having your
         papers in order for the people who can help.
       </p>
@@ -108,7 +108,7 @@ const commonQuestions = [
 
     <PageIntro title="Arriving with a family?">
       <p>
-        Neighborhood fit, kindergartens and schools orientation, pediatricians, weekend life —
+        Neighborhood fit, kindergartens and schools orientation, pediatricians, weekend life:
         the questions that decide whether a move feels like an adventure or an ordeal. Tell us
         how you live; we'll tell you how Cluj fits around it.
       </p>
@@ -132,6 +132,6 @@ const commonQuestions = [
       Whatever brought you here, the first months are made of small questions. Ask them somewhere
       they get honest local answers.
     </p>
-    <Fragment slot="footnote">If the answer helped, pay what feels fair. That's the whole deal.</Fragment>
+    <Fragment slot="footnote">If the answer helped, pay what feels fair. Nothing else to it.</Fragment>
   </CtaBlock>
 </BaseLayout>
