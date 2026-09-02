@@ -54,6 +54,15 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
     <meta name="generator" content={Astro.generator} />
     <script is:inline>document.documentElement.classList.add('js');</script>
 
+    <!-- Google tag (gtag.js) -->
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-FX55G2P9PE"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FX55G2P9PE');
+    </script>
+
     {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>
   <body>
