@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout
+  title="Privacy — What We Collect and Why"
+  brand={false}
+  description="What localhelp.city collects (very little), why, and your choices: one consent-based analytics cookie, WhatsApp messages you send us, and nothing sold to anyone."
+  path="/privacy/"
+>
+  <section class="max-w-3xl mx-auto px-4 sm:px-6 mt-10">
+    <h1 class="text-4xl md:text-5xl font-semibold">Privacy, in plain words</h1>
+    <p class="mt-4 text-lg text-ink-soft">
+      The short version: we collect very little, we sell nothing, and everything we do collect
+      exists to answer your questions or to understand whether the site is useful.
+      Last updated: 2 September 2026.
+    </p>
+
+    <div class="guide-prose mt-8">
+      <h2>Who we are</h2>
+      <p>
+        localhelp.city is a small local-help service operated from Cluj-Napoca, Romania. For
+        anything about your data, write to
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a> — a real person reads it.
+      </p>
+
+      <h2>What we collect, and why</h2>
+      <h3>1. Your WhatsApp messages (when you contact us)</h3>
+      <p>
+        When you message us, we see your phone number, your name as set in WhatsApp, and what
+        you write. We use it for exactly one thing: answering you. Messages travel through
+        WhatsApp, which is operated by Meta under its own
+        <a href="https://www.whatsapp.com/legal/privacy-policy-eea" rel="noopener">privacy policy</a>.
+        We don't add you to lists, we don't message you unprompted beyond replying, and if you
+        ask us to delete our conversation, we will.
+      </p>
+
+      <h3>2. One analytics cookie (only if you say yes)</h3>
+      <p>
+        We use Google Analytics to see which pages are read and which buttons are used, so we
+        know what's helping. It runs in "consent mode": <strong>no analytics cookie is set
+        unless you press "Okay" on our cookie notice.</strong> If you decline, Google receives
+        only cookieless, aggregated pings. You can change your mind by clearing this site's
+        data in your browser — the notice will ask again. Google's own practices are described
+        in <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>.
+      </p>
+
+      <h3>3. Your cookie choice itself</h3>
+      <p>
+        Whether you pressed "Okay" or "No thanks" is stored in your own browser (localStorage),
+        so we don't ask you on every visit. It never leaves your device.
+      </p>
+
+      <h3>4. Payments</h3>
+      <p>
+        If you choose to pay for our help, the payment happens through a payment provider's
+        secure link. We see that a payment happened and roughly what for; your card details go
+        to the payment provider, never to us.
+      </p>
+
+      <h3>5. Ordinary server logs</h3>
+      <p>
+        The site is served through Cloudflare, which — like every hosting provider — processes
+        standard technical data (such as IP addresses) to deliver pages and block abuse, under
+        <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare's privacy policy</a>.
+      </p>
+
+      <h2>What we don't do</h2>
+      <ul>
+        <li>No selling or sharing of your data with advertisers — there are no ads here.</li>
+        <li>No marketing lists, no newsletters you didn't ask for, no tracking across other sites.</li>
+        <li>No profiles of you beyond the conversation you chose to have with us.</li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>
+        Under EU data protection law (GDPR), you can ask us what we hold about you, ask us to
+        correct it, or ask us to delete it — for us that mostly means our WhatsApp conversation
+        with you. One message or email is enough:
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. If you believe we've handled your
+        data badly, you can complain to Romania's data protection authority
+        (<a href="https://www.dataprotection.ro" rel="noopener">ANSPDCP</a>) — though we'd
+        appreciate the chance to fix it first.
+      </p>
+
+      <h2>Changes</h2>
+      <p>
+        If we ever collect more than what's described here, this page changes first and the
+        "last updated" date moves. No silent expansions.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
