@@ -52,6 +52,7 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
     <meta name="twitter:image" content={ogImageUrl} />
 
     <meta name="generator" content={Astro.generator} />
+    <script is:inline>document.documentElement.classList.add('js');</script>
 
     {schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </head>
@@ -67,5 +68,28 @@ const ogImageUrl = new URL(ogImage, SITE.url).href;
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      // Reveal-on-scroll: tiny, dependency-free, honors reduced motion.
+      (function () {
+        var els = document.querySelectorAll('[data-reveal]');
+        var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce || !('IntersectionObserver' in window)) {
+          els.forEach(function (e) { e.classList.add('is-in'); });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (en) {
+              if (en.isIntersecting) {
+                en.target.classList.add('is-in');
+                io.unobserve(en.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -6% 0px' }
+        );
+        els.forEach(function (e) { io.observe(e); });
+      })();
+    </script>
   </body>
 </html>

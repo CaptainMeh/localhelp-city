@@ -21,7 +21,7 @@ const { src, alt, shape = 'soft', caption, class: extra = '', width = 800, heigh
 const shapeClass = { soft: 'rounded-3xl', blob: 'img-blob', offset: 'img-offset', print: 'img-print' }[shape];
 ---
 
-<figure class={extra}>
+<figure class={extra} data-reveal>
   <img src={src} alt={alt} loading="lazy" class={`w-full h-auto ${shapeClass}`} {width} {height} />
   {caption && <figcaption class="mt-3 text-sm text-ink-soft italic">{caption}</figcaption>}
 </figure>

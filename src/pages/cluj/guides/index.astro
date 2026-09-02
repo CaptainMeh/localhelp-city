@@ -55,10 +55,12 @@ const guides = [
 
     <div class="grid gap-4 mt-10 sm:grid-cols-2">
       {
-        guides.map((g) => (
+        guides.map((g, i) => (
           <a
             href={g.href}
-            class="group bg-cream rounded-2xl p-6 border border-terra-soft/60 hover:border-terra hover:-translate-y-0.5 transition-all flex flex-col"
+            class="group card-fx bg-cream rounded-2xl p-6 border border-terra-soft/60 hover:border-terra flex flex-col"
+            data-reveal
+            style={`--i: ${i % 2}`}
           >
             <span class="self-start text-xs font-semibold uppercase tracking-wide bg-honey-soft text-terra-deep rounded-full px-2.5 py-1">
               {g.tag}

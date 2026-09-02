@@ -80,11 +80,13 @@ const services: Service[] = [
 
 <div class="grid gap-3 sm:gap-4 mt-10 grid-cols-2 lg:grid-cols-4">
   {
-    services.map((s) => (
+    services.map((s, i) => (
       <a
         href={s.href}
         rel={s.external ? 'noopener' : undefined}
-        class="group bg-cream rounded-2xl p-4 sm:p-5 border border-terra-soft/60 hover:border-terra hover:-translate-y-0.5 transition-all flex flex-col"
+        class="group card-fx bg-cream rounded-2xl p-4 sm:p-5 border border-terra-soft/60 hover:border-terra flex flex-col"
+        data-reveal
+        style={`--i: ${i % 4}`}
       >
         <span class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-honey-soft flex items-center justify-center text-lg sm:text-xl" aria-hidden="true">
           {s.icon}

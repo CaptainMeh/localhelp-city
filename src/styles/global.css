@@ -67,9 +67,10 @@ details > summary::after {
   font-size: 1.25rem;
   line-height: 1;
   margin-left: 1rem;
+  transition: transform 0.25s var(--ease-brand);
 }
 details[open] > summary::after {
-  content: "–";
+  transform: rotate(45deg);
 }
 
 /* Focus visibility for keyboard users */
@@ -152,4 +153,87 @@ summary:focus-visible {
 }
 .guide-prose .callout p {
   margin-bottom: 0;
+}
+
+
+/* ============ motion system ============
+   Subtle, fast (200–400ms), consistent easing. Content is never hidden
+   without JavaScript, and prefers-reduced-motion disables everything. */
+:root {
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  interpolate-size: allow-keywords; /* enables smooth height:auto for <details> in supporting browsers */
+}
+
+/* reveal-on-scroll — armed only when html.js is set by the head script */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.38s var(--ease-brand),
+    transform 0.38s var(--ease-brand);
+  transition-delay: calc(var(--i, 0) * 60ms);
+}
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* hero load-in: starts immediately, CSS only, never blocks the CTA */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+html.js .hero-anim { animation: rise-in 0.5s var(--ease-brand) both; }
+html.js .hero-anim-late { animation: rise-in 0.55s var(--ease-brand) 0.12s both; }
+
+/* button feedback */
+.btn-fx {
+  transition:
+    transform 0.2s var(--ease-brand),
+    box-shadow 0.2s var(--ease-brand),
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.btn-fx:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(43, 33, 25, 0.14); }
+.btn-fx:active { transform: translateY(0) scale(0.98); box-shadow: none; transition-duration: 0.1s; }
+
+/* clickable-card affordance */
+.card-fx {
+  transition:
+    transform 0.25s var(--ease-brand),
+    box-shadow 0.25s var(--ease-brand),
+    border-color 0.25s ease;
+}
+.card-fx:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(43, 33, 25, 0.08); }
+.card-fx:focus-visible { transform: translateY(-3px); }
+
+/* very light image zoom inside linked cards */
+.card-fx img { transition: transform 0.5s var(--ease-brand); }
+.card-fx:hover img { transform: scale(1.03); }
+
+/* smooth <details> open (progressive enhancement; instant where unsupported) */
+details::details-content {
+  block-size: 0;
+  overflow: clip;
+  transition: block-size 0.3s var(--ease-brand), content-visibility 0.3s allow-discrete;
+}
+details[open]::details-content { block-size: auto; }
+
+/* mobile menu pop-in */
+header details[open] > nav { animation: menu-in 0.22s var(--ease-brand); }
+@keyframes menu-in {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+
+/* reduced motion: everything appears instantly, nothing moves */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js [data-reveal] { opacity: 1; transform: none; transition: none; }
+  html.js .hero-anim, html.js .hero-anim-late { animation: none; }
+  .btn-fx, .btn-fx:hover, .btn-fx:active,
+  .card-fx, .card-fx:hover, .card-fx img, .card-fx:hover img { transition: none; transform: none; box-shadow: none; }
+  details::details-content { transition: none; }
+  details > summary::after { transition: none; }
+  header details[open] > nav { animation: none; }
 }

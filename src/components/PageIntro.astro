@@ -8,7 +8,7 @@ interface Props {
 const { title, id, center = false } = Astro.props;
 ---
 
-<div class:list={['max-w-3xl', center && 'mx-auto text-center']} id={id}>
+<div class:list={['max-w-3xl', center && 'mx-auto text-center']} id={id} data-reveal>
   <h2 class="text-3xl md:text-4xl font-semibold">{title}</h2>
   <div class="mt-4 text-ink-soft text-lg space-y-4">
     <slot />
