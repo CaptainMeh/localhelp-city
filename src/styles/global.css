@@ -85,6 +85,9 @@ summary:focus-visible {
 .img-blob {
   border-radius: 46% 54% 58% 42% / 48% 42% 58% 52%;
 }
+.img-blob-hero {
+  border-radius: 54% 46% 38% 62% / 46% 58% 42% 54%;
+}
 .img-offset {
   border-radius: 1.5rem;
   box-shadow: 14px 14px 0 0 var(--color-terra-soft);
